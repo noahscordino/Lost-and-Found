@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Lost & Found — Pricing Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;1,400&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --burg:#7D2340;--burg-mid:#A33058;--burg-light:#C97090;
+  --burg-pale:#F5E6EC;--burg-deep:#4E1227;
+  --mustard:#D4922A;--mustard-light:#F0C878;--mustard-pale:#FDF3DE;
+  --green:#2E7D4F;--green-pale:#E6F4EC;
+  --amber:#B85C00;--amber-pale:#FDF0E0;
+  --red:#A32D2D;--red-pale:#FCEBEB;
+  --blue:#185FA5;--blue-pale:#E6F1FB;
+  --cream:#FDF8F2;--warm-white:#FEFCF9;
+  --text:#2A1A20;--text-mid:#6B4455;--text-light:#A07888;
+  --border:rgba(125,35,64,0.12);--border-dark:rgba(125,35,64,0.22);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--text);line-height:1.6;overflow-x:hidden}
+
+/* TOP BAR */
+.topbar{background:var(--burg-deep);padding:0.75rem 2rem;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100}
+.topbar-logo{font-family:'Fraunces',serif;font-size:18px;color:white;font-weight:400}
+.topbar-logo span{color:var(--mustard-light);font-style:italic}
+
+/* LAYOUT */
+.page{max-width:900px;margin:0 auto;padding:2rem 1.5rem 4rem}
+.section{margin-bottom:2.5rem}
+.section-title{font-family:'Fraunces',serif;font-size:20px;font-weight:400;color:var(--burg-deep);margin-bottom:0.25rem}
+.section-sub{font-size:14px;color:var(--text-mid);margin-bottom:1.25rem}
+.divider{height:0.5px;background:var(--border-dark);margin:2.5rem 0}
+
+/* HERO BANNER */
+.guide-hero{background:var(--burg-deep);border-radius:16px;padding:2rem;margin-bottom:2.5rem;position:relative;overflow:hidden}
+.guide-hero::before{content:'';position:absolute;top:-60px;right:-60px;width:220px;height:220px;border-radius:50%;background:var(--burg);opacity:0.4}
+.guide-hero h1{font-family:'Fraunces',serif;font-size:28px;font-weight:300;color:white;line-height:1.2;margin-bottom:0.5rem;position:relative}
+.guide-hero h1 em{font-style:italic;color:var(--mustard-light)}
+.guide-hero p{font-size:14px;color:rgba(255,255,255,0.6);max-width:480px;line-height:1.7;position:relative}
+.golden-rule{background:var(--mustard);border-radius:12px;padding:1rem 1.25rem;margin-top:1.25rem;display:inline-block;position:relative}
+.golden-rule-text{font-size:15px;font-weight:700;color:var(--burg-deep)}
+.golden-rule-sub{font-size:12px;color:rgba(78,18,39,0.7);margin-top:2px}
+
+/* CALCULATOR */
+.calc-card{background:var(--warm-white);border:1px solid var(--border-dark);border-radius:16px;padding:1.5rem;margin-bottom:1.5rem}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+.form-grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin-bottom:1rem}
+.f-group{display:flex;flex-direction:column;gap:5px}
+.f-group label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-mid)}
+.f-group select,.f-group input{border:1px solid var(--border-dark);border-radius:8px;padding:9px 12px;font-size:14px;color:var(--text);font-family:'Nunito',sans-serif;background:white;outline:none;-webkit-appearance:none}
+.f-group select:focus,.f-group input:focus{border-color:var(--burg)}
+.calc-btn{width:100%;background:var(--burg);color:white;border:none;padding:13px;border-radius:40px;font-size:15px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;transition:background 0.2s}
+.calc-btn:hover{background:var(--burg-deep)}
+
+/* RESULT */
+.result{display:none;border-radius:14px;padding:1.25rem;margin-top:1rem;border:1.5px solid}
+.result.pay{background:var(--green-pale);border-color:var(--green)}
+.result.caution{background:var(--amber-pale);border-color:var(--amber)}
+.result.pass{background:var(--red-pale);border-color:var(--red)}
+.result-verdict{font-size:20px;font-weight:700;margin-bottom:3px}
+.result.pay .result-verdict{color:var(--green)}
+.result.caution .result-verdict{color:var(--amber)}
+.result.pass .result-verdict{color:var(--red)}
+.result-sub{font-size:13px;color:var(--text-mid);margin-bottom:1rem}
+.result-nums{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:0}
+.rnum{background:rgba(255,255,255,0.7);border-radius:8px;padding:10px;border:0.5px solid rgba(0,0,0,0.07)}
+.rnum-label{font-size:11px;color:var(--text-light);margin-bottom:2px}
+.rnum-val{font-size:18px;font-weight:700;color:var(--text)}
+
+/* BRAND TABLE */
+.brand-table{width:100%;border-collapse:collapse;font-size:13px}
+.brand-table th{text-align:left;padding:8px 12px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-mid);background:var(--burg-pale);border-bottom:1px solid var(--border-dark)}
+.brand-table td{padding:9px 12px;border-bottom:0.5px solid var(--border);color:var(--text);vertical-align:middle}
+.brand-table tr:last-child td{border-bottom:none}
+.brand-table tr:hover td{background:rgba(125,35,64,0.03)}
+.tier-badge{display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:20px;letter-spacing:0.05em}
+.tb-s{background:#4E1227;color:white}
+.tb-a{background:var(--burg);color:white}
+.tb-b{background:var(--burg-light);color:white}
+.tb-c{background:#D3D1C7;color:#444}
+.tb-surf{background:#185FA5;color:white}
+.sell-strong{color:var(--green);font-weight:700}
+.sell-mid{color:var(--amber);font-weight:600}
+.sell-low{color:var(--red)}
+.table-wrap{background:var(--warm-white);border:1px solid var(--border-dark);border-radius:14px;overflow:hidden}
+
+/* SURF/SKATE SPECIAL */
+.surf-card{background:var(--blue-pale);border:1.5px solid var(--blue);border-radius:14px;padding:1.25rem 1.5rem;margin-bottom:1.5rem;display:flex;gap:1.25rem;align-items:flex-start}
+.surf-icon{font-size:28px;flex-shrink:0;margin-top:2px}
+.surf-title{font-size:16px;font-weight:700;color:var(--blue);margin-bottom:4px}
+.surf-body{font-size:14px;color:var(--text);line-height:1.65;margin-bottom:0.5rem}
+.surf-brands{font-size:13px;color:var(--text-mid)}
+.surf-brands strong{color:var(--text);font-weight:600}
+.surf-rate{display:inline-block;background:var(--blue);color:white;font-size:13px;font-weight:700;padding:5px 14px;border-radius:20px;margin-top:8px}
+
+/* CONDITION */
+.cond-table{width:100%;border-collapse:collapse;font-size:13px}
+.cond-table th{padding:8px 12px;text-align:left;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-mid);background:var(--burg-pale);border-bottom:1px solid var(--border-dark)}
+.cond-table td{padding:9px 12px;border-bottom:0.5px solid var(--border);color:var(--text)}
+.cond-table tr:last-child td{border-bottom:none}
+.mult{font-weight:700;color:var(--burg)}
+
+@media(max-width:650px){
+  .form-grid,.form-grid-3,.result-nums{grid-template-columns:1fr}
+  .surf-card{flex-direction:column}
+  .page{padding:1rem 1rem 3rem}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-logo">Lost <span>&</span> Found</div>
+</div>
+
+<div class="page">
+
+  <div class="guide-hero">
+    <h1>Pricing <em>guide</em></h1>
+    <p>Understand how we assess and value clothing. Use this guide to get an estimated offer before you bring your items in.</p>
+    <div class="golden-rule">
+      <div class="golden-rule-text">We offer cash or store credit for quality secondhand clothing</div>
+      <div class="golden-rule-sub">Offers are based on brand, condition, category, and current resale demand.</div>
+    </div>
+  </div>
+
+  <!-- CALCULATOR -->
+  <div class="section">
+    <div class="section-title">Item offer estimator</div>
+    <div class="section-sub">Get a rough idea of what we might offer for an item. Bring your pieces in for a final assessment.</div>
+    <div class="calc-card">
+      <div class="form-grid">
+        <div class="f-group">
+          <label>Brand tier</label>
+          <select id="c-brand">
+            <option value="">— select —</option>
+            <optgroup label="S-Tier — Premium">
+              <option value="s_high">Supreme / Palace / Stone Island / Arc'teryx</option>
+              <option value="s_mid">Carhartt / Stussy / Patagonia / Levi's vintage 501</option>
+              <option value="s_low">Polo Ralph Lauren / Tommy Hil. vintage / Acne / A.P.C.</option>
+            </optgroup>
+            <optgroup label="A-Tier — Strong">
+              <option value="a_high">Nike collab / Adidas classic / New Balance / Reebok vintage</option>
+              <option value="a_mid">Champion USA / Nautica / Lacoste / Calvin Klein / Columbia</option>
+              <option value="a_low">The North Face / Kathmandu / Wrangler / Lee / Dickies</option>
+            </optgroup>
+            <optgroup label="B-Tier — Moderate">
+              <option value="b_high">Country Road / Witchery / Saba / Trenery</option>
+              <option value="b_mid">Zara / H&M / Uniqlo / General Pants</option>
+              <option value="b_low">Glassons / Cotton On / Esprit / Rivers</option>
+            </optgroup>
+            <optgroup label="C-Tier — Donation only">
+              <option value="c">Kmart / Target / Postie / No label / Damaged</option>
+            </optgroup>
+          </select>
+        </div>
+        <div class="f-group">
+          <label>Condition</label>
+          <select id="c-cond">
+            <option value="1.0">Near new — tags on / unworn</option>
+            <option value="0.85">Excellent — worn 1–3 times</option>
+            <option value="0.65" selected>Good — normal wear, no flaws</option>
+            <option value="0.4">Fair — minor fading / pilling</option>
+            <option value="0.1">Poor — stains / damage / heavy wear</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-grid-3">
+        <div class="f-group">
+          <label>Category</label>
+          <select id="c-cat">
+            <option value="1.0">Jacket / coat / outerwear</option>
+            <option value="0.9">Denim / jeans</option>
+            <option value="0.85" selected>Shirt / top / blouse</option>
+            <option value="0.8">Trousers / chinos / pants</option>
+            <option value="0.75">Dress / skirt</option>
+            <option value="0.7">Knitwear / jumper / hoodie</option>
+            <option value="0.65">Shoes / boots</option>
+            <option value="0.5">Accessories / bags</option>
+            <option value="0.4">T-shirts / basics</option>
+          </select>
+        </div>
+        <div class="f-group">
+          <label>Size</label>
+          <select id="c-size">
+            <option value="1.0">S / M</option>
+            <option value="1.0">8 / 10 / 12</option>
+            <option value="0.9">L / 14</option>
+            <option value="0.75">XL / 16</option>
+            <option value="0.6">XXL+ / 18+</option>
+            <option value="0.6">XS / 6</option>
+          </select>
+        </div>
+        <div class="f-group">
+          <label>Surf / Skate / Vintage?</label>
+          <select id="c-surf">
+            <option value="0">No — standard item</option>
+            <option value="1">Yes — flat rate applies</option>
+          </select>
+        </div>
+      </div>
+      <button class="calc-btn" onclick="runCalc()">Estimate offer price</button>
+      <div id="calc-result" class="result">
+        <div id="cr-verdict" class="result-verdict"></div>
+        <div id="cr-sub" class="result-sub"></div>
+        <div class="result-nums">
+          <div class="rnum"><div class="rnum-label">Estimated offer</div><div class="rnum-val" id="cr-pay"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- BRAND REFERENCE TABLE -->
+  <div class="section">
+    <div class="section-title">Brand quick-reference</div>
+    <div class="section-sub">Good condition, S–M size assumed. Offers adjust for condition and size. Surf, skate, and vintage pieces — labelled or not — are assessed on a flat rate.</div>
+    <div class="table-wrap">
+      <table class="brand-table">
+        <thead>
+          <tr>
+            <th>Brand / label</th>
+            <th>Tier</th>
+            <th>Estimated offer</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Supreme / Palace</td><td><span class="tier-badge tb-s">S+</span></td><td>up to $30</td><td>Collab pieces only — authenticity checked</td></tr>
+          <tr><td>Arc'teryx / Stone Island</td><td><span class="tier-badge tb-s">S+</span></td><td>up to $40</td><td>Jackets only. Zips &amp; seams inspected</td></tr>
+          <tr><td>Stussy / Carhartt</td><td><span class="tier-badge tb-s">S</span></td><td>up to $20</td><td>OG labels preferred</td></tr>
+          <tr><td>Levi's 501 (vintage pre-2000)</td><td><span class="tier-badge tb-s">S</span></td><td>up to $15</td><td>Single stitch + orange tab highly valued</td></tr>
+          <tr><td>Polo Ralph Lauren</td><td><span class="tier-badge tb-s">S</span></td><td>up to $15</td><td>Polos &amp; shirts most sought after</td></tr>
+          <tr><td>Patagonia / Arc fleece</td><td><span class="tier-badge tb-s">S</span></td><td>up to $25</td><td>Fleeces highly popular</td></tr>
+          <tr><td>Acne Studios / A.P.C.</td><td><span class="tier-badge tb-s">S</span></td><td>up to $20</td><td>Strong demand</td></tr>
+          <tr><td>Nike retro / collab</td><td><span class="tier-badge tb-a">A</span></td><td>up to $12</td><td>Vintage swoosh, ACG, collab pieces</td></tr>
+          <tr><td>Adidas classic (trefoil)</td><td><span class="tier-badge tb-a">A</span></td><td>up to $10</td><td>Trefoil label preferred</td></tr>
+          <tr><td>New Balance / Reebok vintage</td><td><span class="tier-badge tb-a">A</span></td><td>up to $10</td><td>990/1400/Made in USA move well</td></tr>
+          <tr><td>Champion (USA made)</td><td><span class="tier-badge tb-a">A</span></td><td>up to $10</td><td>Reverse weave &amp; C logo preferred</td></tr>
+          <tr><td>Tommy Hilfiger (90s–00s)</td><td><span class="tier-badge tb-a">A</span></td><td>up to $10</td><td>Big flag logo preferred</td></tr>
+          <tr><td>Nautica / Lacoste</td><td><span class="tier-badge tb-a">A</span></td><td>up to $8</td><td>Polos most popular</td></tr>
+          <tr><td>Columbia / Kathmandu fleece</td><td><span class="tier-badge tb-a">A</span></td><td>up to $8</td><td>Jackets over basics</td></tr>
+          <tr><td>Billabong / Rip Curl / Quiksilver</td><td><span class="tier-badge tb-surf">Surf</span></td><td>$5–10 flat</td><td>Vintage preferred. Label not required</td></tr>
+          <tr><td>Volcom / Thrasher / Santa Cruz</td><td><span class="tier-badge tb-surf">Skate</span></td><td>$5–10 flat</td><td>Unlabelled skate pieces also considered</td></tr>
+          <tr><td>Unbranded vintage / deadstock</td><td><span class="tier-badge tb-surf">Vtg</span></td><td>$5–10 flat</td><td>Age, graphics, and fabric weight considered</td></tr>
+          <tr><td>Country Road / Witchery</td><td><span class="tier-badge tb-b">B</span></td><td>up to $4</td><td>Near-new condition only</td></tr>
+          <tr><td>Zara / H&M (trend piece)</td><td><span class="tier-badge tb-b">B</span></td><td>up to $4</td><td>Near-new condition essential</td></tr>
+          <tr><td>Uniqlo</td><td><span class="tier-badge tb-b">B</span></td><td>up to $3</td><td>Linen &amp; cashmere lines preferred</td></tr>
+          <tr><td>Glassons / Cotton On</td><td><span class="tier-badge tb-b">B</span></td><td>up to $2</td><td>Near-new only</td></tr>
+          <tr><td>Kmart / Target / Postie</td><td><span class="tier-badge tb-c">C</span></td><td>Donation</td><td>Accepted as donations — no cash offer</td></tr>
+          <tr><td>No label / unbranded</td><td><span class="tier-badge tb-c">C</span></td><td>Donation</td><td>Unless clearly vintage — flat rate may apply</td></tr>
+          <tr><td>Kids clothing (any brand)</td><td><span class="tier-badge tb-c">C</span></td><td>Donation</td><td>Accepted as donations only</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- CONDITION GUIDE -->
+  <div class="section">
+    <div class="section-title">Condition guide</div>
+    <div class="section-sub">Condition is the biggest factor in your offer. Here's what each grade means.</div>
+    <div class="table-wrap">
+      <table class="cond-table">
+        <thead>
+          <tr><th>Condition</th><th>Grade</th><th>What it looks like</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Near new</td><td class="mult">×1.0</td><td>Tags still on, or clearly never worn. No signs of washing.</td></tr>
+          <tr><td>Excellent</td><td class="mult">×0.85</td><td>Worn 1–3 times max. No fading, no pilling, no marks.</td></tr>
+          <tr><td>Good</td><td class="mult">×0.65</td><td>Normal wear. Colour intact. No visible damage or stains.</td></tr>
+          <tr><td>Fair</td><td class="mult">×0.40</td><td>Minor fading around collar, light pilling. Still presentable.</td></tr>
+          <tr><td>Poor</td><td class="mult">×0.10</td><td>Visible damage, stains, heavy pilling, or structural issues. Likely donation only.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const tiers={
+  s_high:{base:100,label:'S+ tier'},
+  s_mid:{base:75,label:'S tier'},
+  s_low:{base:55,label:'S tier'},
+  a_high:{base:45,label:'A tier'},
+  a_mid:{base:32,label:'A tier'},
+  a_low:{base:26,label:'A tier'},
+  b_high:{base:18,label:'B tier'},
+  b_mid:{base:14,label:'B tier'},
+  b_low:{base:10,label:'B tier'},
+  c:{base:0,label:'C tier'}
+};
+
+function runCalc(){
+  const brand=document.getElementById('c-brand').value;
+  const cond=parseFloat(document.getElementById('c-cond').value);
+  const cat=parseFloat(document.getElementById('c-cat').value);
+  const size=parseFloat(document.getElementById('c-size').value);
+  const surf=document.getElementById('c-surf').value==='1';
+
+  if(!brand){alert('Please select a brand tier first.');return;}
+
+  const el=document.getElementById('calc-result');
+  el.style.display='block';
+
+  if(surf){
+    const pay=cond>=0.85?10:5;
+    el.className='result caution';
+    document.getElementById('cr-verdict').textContent='Flat rate — surf / skate / vintage';
+    document.getElementById('cr-sub').textContent='A flat rate applies for surf, skate, and vintage pieces. Label not required — bring it in and we\'ll take a look.';
+    document.getElementById('cr-pay').textContent='$'+pay;
+    el.scrollIntoView({behavior:'smooth',block:'start'});
+    return;
+  }
+
+  const t=tiers[brand];
+  const sell=Math.round(t.base*cond*cat*size);
+  const pay=Math.round(sell*0.22);
+
+  let cls,verdict,sub;
+
+  if(brand==='c'||sell<7){
+    cls='pass';
+    verdict='Donation only';
+    sub='This item is best suited as a donation. We\'re happy to accept it and make sure it goes to a good home.';
+  } else if(cond<=0.4){
+    cls='caution';
+    verdict='Low offer likely — condition affects value';
+    sub='This brand has resale potential, but condition significantly reduces the offer. Bring it in and we\'ll take a look.';
+  } else {
+    cls='pay';
+    verdict='Estimated offer: $'+pay;
+    sub=t.label+' item in this condition. Bring it in for a final assessment.';
+  }
+
+  el.className='result '+cls;
+  document.getElementById('cr-verdict').textContent=verdict;
+  document.getElementById('cr-sub').textContent=sub;
+  document.getElementById('cr-pay').textContent=brand==='c'?'—':'$'+pay;
+  el.scrollIntoView({behavior:'smooth',block:'start'});
+}
+</script>
+</body>
+</html>
