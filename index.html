@@ -19,7 +19,7 @@
   body { font-family: 'Nunito', sans-serif; background: var(--warm-white); color: var(--text); line-height: 1.6; overflow-x: hidden; }
 
   nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.1rem 2.5rem; background: rgba(254,252,249,0.94); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
-  .nav-logo { font-family: 'Fraunces', serif; font-size: 24px; font-weight: 400; color: var(--burg); }
+  .nav-logo { font-family: 'Fraunces', serif; font-size: 24px; font-weight: 400; color: var(--burg); text-decoration: none; }
   .nav-logo .amp { color: var(--mustard); font-style: italic; }
   .nav-links { display: flex; gap: 2rem; align-items: center; }
   .nav-links a { font-size: 14px; font-weight: 500; color: var(--text-mid); text-decoration: none; transition: color 0.2s; }
@@ -99,30 +99,36 @@
 
   .pricing { background: var(--warm-white); }
   .pricing-intro { max-width: 540px; margin-bottom: 3.5rem; }
-  .pricing-model { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 2rem; }
-  .pricing-card { border-radius: 18px; padding: 2rem 1.75rem; border: 1.5px solid var(--border); background: var(--cream); position: relative; overflow: hidden; transition: transform 0.2s, border-color 0.2s; }
-  .pricing-card:hover { transform: translateY(-3px); border-color: var(--burg-light); }
-  .pricing-card.featured { background: var(--burg-deep); border-color: var(--burg-deep); }
-  .pricing-card-tag { position: absolute; top: 1.25rem; right: 1.25rem; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
-  .pricing-card.featured .pricing-card-tag { background: var(--mustard); color: var(--burg-deep); }
-  .pricing-card:not(.featured) .pricing-card-tag { background: var(--burg-pale); color: var(--burg); }
-  .pricing-type { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 0.5rem; }
-  .pricing-card.featured .pricing-type { color: var(--burg-light); }
-  .pricing-card:not(.featured) .pricing-type { color: var(--text-light); }
-  .pricing-headline { font-family: 'Fraunces', serif; font-size: 28px; font-weight: 400; margin-bottom: 0.75rem; line-height: 1.15; }
-  .pricing-card.featured .pricing-headline { color: var(--mustard-light); }
-  .pricing-card:not(.featured) .pricing-headline { color: var(--burg-deep); }
-  .pricing-desc { font-size: 14px; line-height: 1.65; }
-  .pricing-card.featured .pricing-desc { color: rgba(255,255,255,0.6); }
-  .pricing-card:not(.featured) .pricing-desc { color: var(--text-mid); }
 
   .per-piece-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; margin-top: 2rem; }
   .pp-card { background: var(--cream); border: 1.5px solid var(--border); border-radius: 14px; padding: 1.5rem 1.25rem; transition: transform 0.2s, border-color 0.2s; position: relative; }
   .pp-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--burg-light); border-radius: 14px 14px 0 0; transform: scaleX(0); transform-origin: left; transition: transform 0.3s; }
   .pp-card:hover { transform: translateY(-3px); border-color: var(--burg-light); }
   .pp-card:hover::before { transform: scaleX(1); }
-  .pp-tier { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-light); margin-bottom: 0.4rem; }
-  .pp-price { font-family: 'Fraunces', serif; font-size: 28px; color: var(--burg); font-weight: 400; margin-bottom: 0.3rem; }
+  .pp-premium { background: var(--burg-deep); border-color: var(--burg-deep); }
+  .pp-premium::before { background: var(--mustard); }
+  .pp-donate { background: var(--green-pale,#E6F4EC); border-color: #2E7D4F; }
+  .pp-donate::before { background: #2E7D4F; }
+  .pp-guide { background: var(--mustard-pale); border-color: var(--mustard); display:flex; flex-direction:column; align-items:flex-start; }
+  .pp-guide::before { background: var(--mustard); }
+  .pp-badge { display:inline-block; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; padding:3px 10px; border-radius:20px; margin-bottom:0.75rem; background:var(--mustard); color:var(--burg-deep); }
+  .pp-badge-std { background:var(--burg-pale); color:var(--burg); }
+  .pp-badge-donate { background:#2E7D4F; color:white; }
+  .pp-title { font-family:'Fraunces',serif; font-size:15px; font-weight:400; margin-bottom:0.2rem; line-height:1.3; }
+  .pp-premium .pp-title { color:var(--mustard-light); }
+  .pp-donate .pp-title { color:#1a5c38; }
+  .pp-sub { font-size:11px; color:var(--text-light); margin-bottom:0.75rem; font-style:italic; }
+  .pp-premium .pp-sub { color:rgba(255,255,255,0.5); }
+  .pp-donate .pp-sub { color:#2E7D4F; }
+  .pp-price { font-family:'Fraunces',serif; font-size:28px; color:var(--burg); font-weight:400; margin-bottom:0.3rem; line-height:1.2; }
+  .pp-premium .pp-price { color:var(--mustard-light); }
+  .pp-donate .pp-price { color:#2E7D4F; }
+  .pp-desc { font-size:13px; color:var(--text-mid); line-height:1.5; }
+  .pp-premium .pp-desc { color:rgba(255,255,255,0.6); }
+  .pp-donate .pp-desc { color:#2E7D4F; }
+  .pp-guide-icon { font-size:28px; margin-bottom:0.25rem; }
+  .pp-guide-link { margin-top:auto; padding-top:1rem; font-size:13px; font-weight:700; color:var(--burg-deep); text-decoration:none; border-bottom:1.5px solid var(--mustard); padding-bottom:2px; }
+  .pp-guide-link:hover { color:var(--burg); }
   .pp-desc { font-size: 13px; color: var(--text-mid); line-height: 1.5; }
   .pricing-note { margin-top: 1.5rem; padding: 1rem 1.25rem; background: var(--mustard-pale); border-radius: 12px; border-left: 3px solid var(--mustard); font-size: 14px; color: var(--text-mid); line-height: 1.6; }
   .pricing-note strong { color: var(--burg-deep); }
@@ -254,8 +260,7 @@
     .steps-wrap { grid-template-columns: 1fr 1fr; gap: 2rem; }
     .steps-wrap::before { display: none; }
     .happens-grid, .pricing-model, .why-inner, .about-inner { grid-template-columns: 1fr; }
-    .per-piece-grid { grid-template-columns: 1fr 1fr; }
-    .photo-block { display: none; }
+    .per-piece-grid { grid-template-columns: 1fr 1fr; }    .photo-block { display: none; }
     .f-row { grid-template-columns: 1fr; }
     footer { flex-direction: column; align-items: flex-start; }
     .about-float { position: static; margin-top: 1rem; display: inline-block; }
@@ -266,11 +271,12 @@
 <body>
 
 <nav>
-  <div class="nav-logo">Lost <span class="amp">&</span> Found</div>
+  <a href="/" class="nav-logo">Lost <span class="amp">&</span> Found</a>
   <div class="nav-links">
     <a href="#how">How it works</a>
     <a href="#happens">What we do</a>
     <a href="#pricing">Pricing</a>
+    <a href="/pricing">Pricing guide</a>
     <a href="#about">About us</a>
     <a href="#book" class="nav-cta">Book a pickup</a>
   </div>
@@ -281,7 +287,7 @@
     <div class="hero-inner">
       <div class="hero-pill"><div class="pill-dot"></div>Free pickup · All of Auckland</div>
       <h1>Give your old<br>clothes a <em>new story.</em></h1>
-      <p class="hero-sub">We come to your door, take your pre-loved clothing off your hands, and pay you for the pieces worth keeping in circulation. Nothing goes to waste — ever.</p>
+      <p class="hero-sub">We come to your door, take your pre-loved <strong>men's and women's clothing</strong> off your hands, and pay you for the pieces worth keeping in circulation. Clothing only — nothing goes to waste.</p>
       <div class="hero-btns">
         <a href="#book" class="btn-main">Book a free pickup</a>
         <a href="#how" class="btn-ghost">See how it works →</a>
@@ -311,7 +317,7 @@
   <div class="container">
     <div class="section-eyebrow">The process</div>
     <h2 class="section-h">Couldn't be easier</h2>
-    <p class="section-p">No sorting, no trips to the op shop, no clothing bins. Just bag it up and we'll come to you.</p>
+    <p class="section-p">No sorting, no trips to the op shop, no clothing bins. Just bag up your <strong>men's and women's clothing</strong> and we'll come to you. We collect clothing only — not shoes, bags, homewares, or other items.</p>
     <div class="steps-wrap">
       <div class="step-card">
         <div class="step-circle">📋</div>
@@ -346,28 +352,28 @@
   <div class="container">
     <div class="section-eyebrow">Every piece has a path</div>
     <h2 class="section-h">Nothing gets thrown away</h2>
-    <p class="section-p">When you book with Lost & Found, every item that leaves your door has somewhere meaningful to go.</p>
+    <p class="section-p">When you book with Lost & Found, every piece of clothing that leaves your door has somewhere meaningful to go. <strong>Adult men's and women's clothing only</strong> — we are a resale service, not a general recycling or donation drop-off.</p>
     <div class="happens-grid">
       <div class="hap-card sell">
         <div class="hap-emoji">👚</div>
-        <div class="hap-title">Good clothes get resold</div>
-        <div class="hap-desc">Quality men's and women's clothing gets a new owner — and we pay you for these pieces. Good clothes deserve to keep going.</div>
+        <div class="hap-title">Quality adult clothing gets resold</div>
+        <div class="hap-desc">Adult men's and women's clothing in good condition gets a new owner — and we pay you for it. <strong>Men's clothing</strong> is especially in demand and most likely to be purchased individually at a higher rate.</div>
         <div class="hap-list">
-          <div class="hap-item"><span class="hap-tag">Paid</span> Men's clothing</div>
-          <div class="hap-item"><span class="hap-tag">Paid</span> Women's clothing</div>
-          <div class="hap-item"><span class="hap-tag">Paid</span> Shoes & accessories</div>
-          <div class="hap-item"><span class="hap-tag">Paid</span> Designer & branded</div>
+          <div class="hap-item"><span class="hap-tag">Paid</span> Adult men's clothing</div>
+          <div class="hap-item"><span class="hap-tag">Paid</span> Adult women's clothing</div>
+          <div class="hap-item"><span class="hap-tag">Paid</span> Vintage, surf, skate &amp; designer</div>
+          <div class="hap-item"><span class="hap-tag">Not accepted</span> Shoes, bags &amp; homewares</div>
         </div>
       </div>
       <div class="hap-card donate">
         <div class="hap-emoji">🤝</div>
         <div class="hap-title">Everything else gets donated</div>
-        <div class="hap-desc">Kids' clothes, worn or damaged items — we pass these on to Auckland charities and families who need them most.</div>
+        <div class="hap-desc">Worn, damaged, or lower-value clothing goes directly to our Auckland charity partner — families who need it most. No cash on these, but nothing goes to landfill.</div>
         <div class="hap-list">
           <div class="hap-item"><span class="hap-tag">Donated</span> Children's clothing</div>
-          <div class="hap-item"><span class="hap-tag">Donated</span> Worn or damaged items</div>
-          <div class="hap-item"><span class="hap-tag">Donated</span> Anything unsellable</div>
-          <div class="hap-item"><span class="hap-tag">Donated</span> Given locally in Auckland</div>
+          <div class="hap-item"><span class="hap-tag">Donated</span> Worn or damaged clothing</div>
+          <div class="hap-item"><span class="hap-tag">Donated</span> Low-value items</div>
+          <div class="hap-item"><span class="hap-tag">Not accepted</span> Non-clothing items</div>
         </div>
       </div>
     </div>
@@ -386,45 +392,47 @@
     <div class="pricing-intro">
       <div class="section-eyebrow">How we pay</div>
       <h2 class="section-h">Simple, fair, on the day</h2>
-      <p class="section-p">No waiting, no invoices. We weigh and assess your clothing when we collect and pay you before we leave. The grade of your clothing determines where in the range your payment lands.</p>
+      <p class="section-p">No waiting, no invoices. We assess your clothing at your door and pay you cash before we leave. We collect <strong>adult men's and women's clothing only</strong> — this is a resale service, not a general recycling pickup.</p>
     </div>
-    <div class="pricing-model">
-      <div class="pricing-card featured">
-        <span class="pricing-card-tag">Premium grade</span>
-        <div class="pricing-type">Quality brands &amp; good condition</div>
-        <div class="pricing-headline">$5–7<br>per kg</div>
-        <div class="pricing-desc">Well-known labels, quality pieces, good to near-new condition. The better the condition and brand, the higher in this range we'll pay.</div>
+    <div class="per-piece-grid" style="grid-template-columns:repeat(4,1fr);">
+
+      <!-- Premium grade -->
+      <div class="pp-card pp-premium">
+        <div class="pp-badge">Premium grade</div>
+        <div class="pp-title">Valuable &amp; resellable clothing</div>
+        <div class="pp-sub">e.g. surf, skate, vintage, or designer brands</div>
+        <div class="pp-price">$5–15<br><span style="font-size:15px">per piece</span></div>
+        <div class="pp-desc">Each piece assessed individually. Range depends on type — e.g. <strong>$15 for a fleece or hoodie, $5 for a shirt or shorts</strong>. Men's premium pieces especially sought after.</div>
       </div>
-      <div class="pricing-card">
-        <span class="pricing-card-tag">Standard grade</span>
-        <div class="pricing-type">General clothing</div>
-        <div class="pricing-headline">$2–4<br>per kg</div>
-        <div class="pricing-desc">Everyday clothing in wearable condition. Fair wear, mixed brands. Condition is how we assess where in the range your items sit.</div>
+
+      <!-- Standard grade -->
+      <div class="pp-card">
+        <div class="pp-badge pp-badge-std">Standard grade</div>
+        <div class="pp-title">General adult clothing</div>
+        <div class="pp-sub">Wearable condition, mixed labels</div>
+        <div class="pp-price">$3–7<br><span style="font-size:15px">/kg</span></div>
+        <div class="pp-desc">One overall grading decision for the whole collection — priced between $3–7/kg based on the quality of what's there.</div>
       </div>
+
+      <!-- Donation grade -->
+      <div class="pp-card pp-donate">
+        <div class="pp-badge pp-badge-donate">Donation grade</div>
+        <div class="pp-title">Worn, damaged or low-value</div>
+        <div class="pp-sub">Kids' clothing, heavy wear, no-label</div>
+        <div class="pp-price" style="font-size:22px;line-height:1.3">Donated<br>free</div>
+        <div class="pp-desc">We pass these directly to our Auckland charity partner — nothing goes to landfill, but no cash offer on these pieces.</div>
+      </div>
+
+      <!-- CTA card -->
+      <div class="pp-card pp-guide">
+        <div class="pp-guide-icon">📅</div>
+        <div class="pp-title" style="margin-top:0.5rem">Get a free quote</div>
+        <div class="pp-desc" style="margin-top:0.75rem">Not sure what you've got? Book a free pickup and we'll assess everything on the spot — no obligation.</div>
+        <a href="#book" class="pp-guide-link">Book now for a free quote →</a>
+      </div>
+
     </div>
-    <div class="per-piece-grid">
-      <div class="pp-card">
-        <div class="pp-tier">Premium grade</div>
-        <div class="pp-price">$5–7 /kg</div>
-        <div class="pp-desc">Quality labels, good to near-new condition</div>
-      </div>
-      <div class="pp-card">
-        <div class="pp-tier">Standard grade</div>
-        <div class="pp-price">$2–4 /kg</div>
-        <div class="pp-desc">General wearable clothing, fair condition</div>
-      </div>
-      <div class="pp-card">
-        <div class="pp-tier">Surf / Skate / Vintage</div>
-        <div class="pp-price">$5–10 /piece</div>
-        <div class="pp-desc">Flat rate per piece for surf, skate &amp; vintage items</div>
-      </div>
-      <div class="pp-card">
-        <div class="pp-tier">Grade C / Donated</div>
-        <div class="pp-price">$0</div>
-        <div class="pp-desc">Damaged, kids' clothing &amp; unbranded items go straight to local charities</div>
-      </div>
-    </div>
-    <div class="pricing-note"><strong>Got something special?</strong> If you have items of perceived value, please disclose them before we collect so we can research and give you a proper offer — otherwise all clothing will be assessed and paid under our standard weighted categories.</div>
+    <div class="pricing-note"><strong>Adult clothing only.</strong> We're a resale and collection service for <strong>adult men's and women's clothing</strong> — not a general drop-off or recycling service. Kids' clothing, homewares, shoes, and bags are not accepted for cash. Kids' clothing can be donated. <a href="/pricing" style="color:var(--burg-deep);font-weight:700;">Got something valuable? Let us know when you book →</a></div>
   </div>
 </section>
 
@@ -479,7 +487,7 @@
         <h2 class="section-h">A mother and son with a genuine love for second-hand clothing.</h2>
         <p class="about-body">Lost & Found started the way most good ideas do — out of something we were already doing anyway. For over a decade, Noah and Nita have been hitting op shops, markets, and thrift stores together across Auckland, building an eye for quality pieces and a deep appreciation for clothes that have a story.</p>
         <p class="about-body">Noah brings hands-on experience from years working in surf and skate fashion retail — understanding what moves, what lasts, and what's worth holding onto. That background shapes how we assess every collection and what ends up finding a new home.</p>
-        <p class="about-body">We started Lost & Found because we genuinely believe great clothing shouldn't end up in a bin. Come as you are, bag it up, and leave it to us.</p>
+        <p class="about-body">We started Lost & Found because we genuinely believe great clothing shouldn't end up in a bin. Bag up your clothes and leave the rest to us.</p>
         <div class="about-passions">
           <div class="passion-chip">🏄 Surf & skate fashion</div>
           <div class="passion-chip">🕵️ Thrifting</div>
@@ -507,7 +515,7 @@
       <div class="contact-item">
         <div class="contact-icon">✉️</div>
         <div>
-          <div class="contact-detail"><a href="mailto:noahscordino@gmail.com">noahscordino@gmail.com</a></div>
+          <div class="contact-detail"><a href="/cdn-cgi/l/email-protection#ef81808e879c8c809d8b868180af88828e8683c18c8082"><span class="__cf_email__" data-cfemail="9ef0f1fff6edfdf1ecfaf7f0f1def9f3fff7f2b0fdf1f3">[email&#160;protected]</span></a></div>
           <div class="contact-sub">We reply within 24 hours</div>
         </div>
       </div>
@@ -562,7 +570,7 @@
       </div>
       <div class="f-grp"><label for="perceived-value">Items of perceived value (please disclose before collection)</label><input id="perceived-value" type="text" name="Items of perceived value" placeholder="e.g. Vintage Levi's 501s, Carhartt jacket, Polo Ralph Lauren shirts..." /></div>
       <div class="f-grp"><label for="details">Any other details</label><textarea id="details" name="Other details" placeholder="e.g. Women's work clothes, men's jackets, kids' stuff for donation..."></textarea></div>
-      <div class="form-note">📍 We come to you — no drop-off needed, ever. Disclosing items of value helps us research and give you the best possible offer.</div>
+      <div class="form-note">📍 We come to you — no drop-off needed. Clothing only please — we're unable to collect shoes, bags, or homewares.</div>
       <button type="submit" class="btn-submit">Request my pickup →</button>
     </form>
   </div>
@@ -571,30 +579,4 @@
 <footer>
   <div class="footer-logo">Lost <span class="amp">&</span> Found</div>
   <div class="footer-tagline">Auckland-wide · Free pickup · Zero waste<br>
-    <a href="tel:0223225100" style="color:var(--text-light);text-decoration:none;">022 322 5100</a> ·
-    <a href="mailto:noahscordino@gmail.com" style="color:var(--text-light);text-decoration:none;">noahscordino@gmail.com</a>
-  </div>
-  <div class="footer-links">
-    <a href="#how">How it works</a>
-    <a href="#pricing">Pricing</a>
-    <a href="#about">About us</a>
-    <a href="#book">Book a pickup</a>
-  </div>
-</footer>
-
-<script>
-async function handleSubmit(e) {
-  e.preventDefault();
-  const form = e.target;
-  const btn = form.querySelector('.btn-submit');
-  btn.textContent = 'Sending...';
-  btn.disabled = true;
-  try {
-    const response = await fetch(form.action, {
-      method: 'POST',
-      body: new FormData(form),
-      headers: { 'Accept': 'application/json' }
-    });
-    if (response.ok) {
-      btn.textContent = 'Booking requested ✓';
-      btn.style.background = '#7D2
+    <a href="tel:0223225100" style="color:var(--text-light);text-decoration:none;">022 
