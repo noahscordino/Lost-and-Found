@@ -514,7 +514,7 @@
       <div class="contact-item">
         <div class="contact-icon">✉️</div>
         <div>
-          <div class="contact-detail"><a href="/cdn-cgi/l/email-protection#ef81808e879c8c809d8b868180af88828e8683c18c8082"><span class="__cf_email__" data-cfemail="9ef0f1fff6edfdf1ecfaf7f0f1def9f3fff7f2b0fdf1f3">[email&#160;protected]</span></a></div>
+          <div class="contact-detail"><a href="mailto:noahscordino@gmail.com">noahscordino@gmail.com</a></div>
           <div class="contact-sub">We reply within 24 hours</div>
         </div>
       </div>
@@ -533,43 +533,64 @@
         <div class="f-grp"><label for="last-name">Last name</label><input id="last-name" type="text" name="Last name" placeholder="Smith" /></div>
       </div>
       <div class="f-row">
-        <div class="f-grp"><label for="email">Email address</label><input id="email" type="email" name="Email" placeholder="you@email.com" required /></div>
-        <div class="f-grp"><label for="phone">Phone number</label><input id="phone" type="tel" name="Phone" placeholder="021 000 0000" /></div>
+        <div class="f-grp"><label for="phone">Phone number</label><input id="phone" type="tel" name="Phone" placeholder="021 000 0000" required /></div>
+        <div class="f-grp"><label for="email">Email address</label><input id="email" type="email" name="Email" placeholder="you@email.com" /></div>
       </div>
-      <div class="f-grp"><label for="suburb">Your suburb</label><input id="suburb" type="text" name="Suburb" placeholder="e.g. Ponsonby, Mt Eden, Remuera..." required /></div>
+      <div class="f-row">
+        <div class="f-grp"><label for="suburb">Your suburb</label><input id="suburb" type="text" name="Suburb" placeholder="e.g. Ponsonby, Mt Eden, Remuera..." required /></div>
+        <div class="f-grp"><label for="address">Street address (optional)</label><input id="address" type="text" name="Street address" placeholder="e.g. 12 Example St" /></div>
+      </div>
       <div class="f-row">
         <div class="f-grp">
           <label for="day">Preferred day</label>
-          <select id="day" name="Preferred day"><option value="">Any day works</option><option>Monday</option><option>Tuesday</option><option>Wednesday</option><option>Thursday</option><option>Friday</option><option>Saturday</option></select>
+          <select id="day" name="Preferred day">
+            <option value="">Any day works</option>
+            <option>Monday</option>
+            <option>Tuesday</option>
+            <option>Wednesday</option>
+            <option>Thursday</option>
+            <option>Friday</option>
+            <option>Saturday</option>
+            <option>Sunday</option>
+          </select>
         </div>
         <div class="f-grp">
-          <label for="bags">Rough number of bags</label>
-          <select id="bags" name="Number of bags"><option value="">Not sure yet</option><option>1 bag</option><option>2–3 bags</option><option>4+ bags</option></select>
+          <label for="time">Preferred time</label>
+          <select id="time" name="Preferred time">
+            <option value="">Flexible</option>
+            <option>Morning (8am–12pm)</option>
+            <option>Afternoon (12pm–5pm)</option>
+            <option>Evening (5pm–7pm)</option>
+          </select>
         </div>
       </div>
       <div class="f-row">
         <div class="f-grp">
-          <label for="grade">Clothing grade (your estimate)</label>
-          <select id="grade" name="Clothing grade">
-            <option value="">Not sure</option>
-            <option value="premium">Premium — quality brands, good condition</option>
-            <option value="standard">Standard — general clothing, wearable</option>
-            <option value="mixed">Mixed — bit of both</option>
-            <option value="surf">Surf / skate / vintage pieces</option>
+          <label for="bags">Rough number of bags</label>
+          <select id="bags" name="Number of bags">
+            <option value="">Not sure yet</option>
+            <option>1 bag</option>
+            <option>2–3 bags</option>
+            <option>4+ bags</option>
           </select>
         </div>
         <div class="f-grp">
-          <label for="surf-skate">Surf / skate / vintage items?</label>
-          <select id="surf-skate" name="Surf skate vintage">
-            <option value="no">No</option>
-            <option value="yes">Yes — I have some</option>
-            <option value="mostly">Mostly surf/skate/vintage</option>
+          <label for="clothing-type">Mostly men's or women's?</label>
+          <select id="clothing-type" name="Clothing type">
+            <option value="">Mix of both</option>
+            <option>Mostly men's</option>
+            <option>Mostly women's</option>
+            <option>All men's</option>
+            <option>All women's</option>
           </select>
         </div>
       </div>
-      <div class="f-grp"><label for="perceived-value">Items of perceived value (please disclose before collection)</label><input id="perceived-value" type="text" name="Items of perceived value" placeholder="e.g. Vintage Levi's 501s, Carhartt jacket, Polo Ralph Lauren shirts..." /></div>
-      <div class="f-grp"><label for="details">Any other details</label><textarea id="details" name="Other details" placeholder="e.g. Women's work clothes, men's jackets, kids' stuff for donation..."></textarea></div>
-      <div class="form-note">📍 We come to you — no drop-off needed. Clothing only please — we're unable to collect shoes, bags, or homewares.</div>
+      <div class="f-grp">
+        <label for="perceived-value">Any premium or valuable items? (optional)</label>
+        <input id="perceived-value" type="text" name="Items of perceived value" placeholder="e.g. Vintage Levi's, Carhartt jacket, Patagonia fleece, Ralph Lauren shirts..." />
+      </div>
+      <div class="f-grp"><label for="details">Anything else we should know</label><textarea id="details" name="Other details" placeholder="e.g. Mostly surf/skate gear, vintage pieces, lots of outerwear..."></textarea></div>
+      <div class="form-note">📍 We come to you — no drop-off needed. Adult clothing only — we're unable to collect shoes, bags, or homewares.</div>
       <button type="submit" class="btn-submit">Request my pickup →</button>
     </form>
   </div>
