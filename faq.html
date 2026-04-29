@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ — Lost & Found Auckland</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:             #f5e6e8;
+      --white:          #ffffff;
+      --burgundy:       #6b1d3a;
+      --burgundy-dark:  #4e1229;
+      --text:           #2a0d1a;
+      --text-mid:       #6b3045;
+      --text-muted:     #9a6070;
+      --gold:           #c08b2a;
+      --rule:           #e0c8cc;
+      --pill-bg:        #ecdadc;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.65;
+    }
+
+    /* NAV */
+    nav {
+      background: var(--white);
+      border-bottom: 1px solid var(--rule);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 28px;
+      height: 62px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: 'Fraunces', serif;
+      font-weight: 400;
+      font-size: 1.15rem;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--gold); }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta {
+      background: var(--burgundy) !important;
+      color: #fff !important;
+      padding: 9px 20px;
+      border-radius: 100px;
+      font-weight: 700 !important;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--burgundy-dark) !important; }
+
+    /* HERO */
+    .hero {
+      background: var(--white);
+      border-bottom: 1px solid var(--rule);
+      padding: 80px 28px 64px;
+      text-align: center;
+    }
+    .eyebrow {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+    }
+    .hero h1 {
+      font-family: 'Fraunces', serif;
+      font-weight: 400;
+      font-size: clamp(2.6rem, 5vw, 3.8rem);
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+    .hero p {
+      font-size: 1rem;
+      color: var(--text-mid);
+      max-width: 460px;
+      margin: 0 auto 36px;
+    }
+    .btn-row {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-block;
+      background: var(--burgundy);
+      color: #fff;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 13px 28px;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .btn-primary:hover { background: var(--burgundy-dark); }
+    .btn-ghost {
+      display: inline-block;
+      border: 1.5px solid var(--rule);
+      color: var(--text-mid);
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 12px 24px;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-ghost:hover { border-color: var(--burgundy); color: var(--burgundy); }
+
+    /* FILTERS */
+    .filters {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 40px 28px 0;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .filter-btn {
+      background: var(--pill-bg);
+      border: none;
+      border-radius: 100px;
+      padding: 8px 18px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.83rem;
+      font-weight: 600;
+      color: var(--text-mid);
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+    .filter-btn.active,
+    .filter-btn:hover {
+      background: var(--burgundy);
+      color: #fff;
+    }
+
+    /* FAQ BODY */
+    .faq-body {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 32px 28px 88px;
+    }
+
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin: 52px 0 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--rule);
+    }
+    .faq-item[data-hidden="true"] { display: none; }
+
+    .faq-q {
+      width: 100%;
+      background: none;
+      border: none;
+      text-align: left;
+      padding: 20px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      cursor: pointer;
+      font-family: 'Nunito', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.4;
+      transition: color 0.15s;
+    }
+    .faq-q:hover { color: var(--burgundy); }
+
+    .faq-icon {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--pill-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+    .faq-icon svg {
+      width: 10px;
+      height: 10px;
+      stroke: var(--text-muted);
+      transition: transform 0.3s, stroke 0.2s;
+    }
+    .faq-item.open .faq-icon { background: var(--burgundy); }
+    .faq-item.open .faq-icon svg { transform: rotate(45deg); stroke: #fff; }
+
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.25s ease;
+    }
+    .faq-item.open .faq-a {
+      max-height: 500px;
+      padding-bottom: 22px;
+    }
+    .faq-a p {
+      font-size: 0.95rem;
+      color: var(--text-mid);
+      line-height: 1.75;
+    }
+    .faq-a p + p { margin-top: 10px; }
+    .faq-a strong { color: var(--text); font-weight: 700; }
+    .faq-a a { color: var(--burgundy); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+
+    /* CTA CARD */
+    .cta-card {
+      background: var(--burgundy);
+      border-radius: 18px;
+      padding: 52px 40px;
+      text-align: center;
+      margin-top: 28px;
+    }
+    .cta-card h2 {
+      font-family: 'Fraunces', serif;
+      font-weight: 400;
+      font-size: 2rem;
+      color: var(--gold);
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+    .cta-card p {
+      color: rgba(255,255,255,0.72);
+      font-size: 0.95rem;
+      margin: 0 auto 28px;
+      max-width: 360px;
+    }
+    .cta-card .btn-white {
+      display: inline-block;
+      background: #fff;
+      color: var(--burgundy);
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 13px 28px;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+    .cta-card .btn-white:hover { background: var(--gold); color: #fff; }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--rule);
+      background: var(--white);
+      padding: 32px 28px;
+      text-align: center;
+    }
+    footer p { font-size: 0.83rem; color: var(--text-muted); }
+    footer a { color: var(--text-mid); text-decoration: none; font-weight: 600; }
+    footer a:hover { color: var(--burgundy); }
+
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .hero { padding: 52px 20px 44px; }
+      .filters { padding: 28px 20px 0; }
+      .faq-body { padding: 24px 20px 64px; }
+      .cta-card { padding: 36px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a class="nav-logo" href="https://lost-and-found.co.nz/">Lost <span>&</span> Found</a>
+      <ul class="nav-links">
+        <li><a href="https://lost-and-found.co.nz/#how">How it works</a></li>
+        <li><a href="https://lost-and-found.co.nz/#happens">What we do</a></li>
+        <li><a href="https://lost-and-found.co.nz/#pricing">Pricing</a></li>
+        <li><a href="https://lost-and-found.co.nz/#about">About us</a></li>
+        <li><a href="https://www.instagram.com/lostandfoundauckland">Instagram</a></li>
+        <li><a href="https://lost-and-found.co.nz/#book" class="nav-cta">Book a pickup</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <p class="eyebrow">Got questions?</p>
+    <h1>Everything you need<br>to <em>know.</em></h1>
+    <p>Quick answers to the most common questions about our free Auckland clothing collection service.</p>
+    <div class="btn-row">
+      <a href="https://lost-and-found.co.nz/#book" class="btn-primary">Book a free pickup →</a>
+      <a href="https://lost-and-found.co.nz/#how" class="btn-ghost">See how it works</a>
+    </div>
+  </section>
+
+  <div class="filters">
+    <button class="filter-btn active" data-filter="all">All questions</button>
+    <button class="filter-btn" data-filter="booking">Booking</button>
+    <button class="filter-btn" data-filter="pricing">Pricing & payment</button>
+    <button class="filter-btn" data-filter="clothing">What we accept</button>
+    <button class="filter-btn" data-filter="after">After we collect</button>
+  </div>
+
+  <div class="faq-body">
+
+    <p class="section-label" data-section="booking">Booking & collections</p>
+
+    <div class="faq-item" data-category="booking">
+      <button class="faq-q" aria-expanded="false">How do I book a pickup?
+        <span class="faq-icon"><svg viewBox="0 0 10 10" fill="none"><line x1="5" y1="1" x2="5" y2="9" stroke-width="1.6" stroke-linecap="round"/><line x1="1" y1="5" x2="9" y2="5" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+      </button>
+      <div class="faq-a"><p>Head to the <a href="https://lost-and-found.co.nz/#book">booking section</a> on our homepage, fill in your details, tell us roughly what you've got, and pick a time. It takes about two minutes. We collect Friday–Sunday across all of Auckland.</p></div>
+    </div>
+
+    <div class="faq-item" data-category="booking">
+      <button class="faq-q" aria-expanded="false">What days do you collect?
+        <span class="faq-icon"><svg viewBox="0 0 10 10" fill="none"><line x1="5" y1="1" x2="5" y2="9" stroke-width="1.6" stroke-linecap="round"/><line x1="1" y1="5" x2="9" y2="5" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+      </button>
+      <div class="faq-a"><p>We collect <strong>Friday, Saturday, and Sunday</strong> across Auckland. If you need something outside those days, get in touch via Instagram and we'll see what we can do.</p></div>
+    </div>
+
+    <div class="faq-item" data-category="booking">
+      <button class="faq-q" aria-expanded="false">Do you cover all of Auckland?
+        <span class="faq-icon"><svg viewBox="0 0 10 10" fill="none"><line x1="5" y1="1" x2="5" y2="9" stroke-width="1.6" stroke-linecap="round"/><line x1="1" y1="5" x2="9" y2="5" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+      </button>
+      <div class="faq-a"><p>We collect across all of Auckland, though every booking goes through a quick qualification check based on the amount and quality of clothing you have. We're East Tamaki-based, so pickups around East Auckland and the CBD get first priority — but don't let that put you off booking if you're elsewhere in the city.</p></div>
+    </div>
+
+    <div class="faq-item" data-category="booking">
+      <button class="faq-q" aria-expanded="false">Is there a minimum amount of clothing I need?
+        <span class="faq-icon"><svg viewBox="0 0 10 10" fill="none"><line x1="5" y1="1" x2="5" y2="9" stroke-width="1.6" stroke-linecap="round"/><line x1="1" y1="5" x2="9" y2="5" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+      </button>
+      <div class="faq-a"><p>No strict minimum — we just ask that you've got a bag or more worth of clothing. If you're unsure, reach out on <a href="https://www.instagram.com/lostandfoundauckland">Instagram</a> and we'll let you know.</p></div>
+    </div>
+
+    <div class="faq-item" data-category="booking">
+      <button class="faq-q" aria-expanded="false">Do I need to sort or prepare anything before you arrive?
+        <span class="faq-icon"><svg viewBox="0 0 10 10" fill="none"><line x1="5" y1="1" x2="5" y2="9" stroke-width="1.6" stroke-linecap="round"/><line x1="1" y1="5" x2="9" y2="5" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+      </button>
+      <div class="faq-a"><p>Nope — just bag it up and we'll go through everything on the spot. No sorting, no washing required. We handle the rest.</p></div>
+    </div>
+
+    <p class="section-label" data-section="pricing">Pricing & payment</p>
+
+    <div class="faq-item" data-category="pricing">
+      <button class="faq-q" aria-expanded="false">How much will I get paid?
+        <span class="faq-icon"><svg viewBox="0 0 10 10" fill="none"><line x1="5" y1="1" x2="5" y2="9" stroke-width="1.6" stroke-linecap="round"/><line x1="1" y1="5" x2="9" y2="5" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+      </button>
+      <div class="faq-a">
+        <p><strong>Premium pieces</strong> (surf, skate, vintage, designer) are assessed individually at $5–15 per piece — e.g. $15 for a hoodie or fleece, $5 for a shirt or shorts. Men's premium pieces are especially in demand.</p>
+        <p><strong>General adult clothing</strong> in wearable condition is priced at $3–7 per kg based on overall quality.</p>
+        <p><strong>Worn, damaged, or low-value items</strong> (including children's clothing) are taken for donation at no charge.</p>
+      </div>
+    </div>
+
+    <div class="faq-item" data-category="pricing">
+      <button class="faq-q" aria-expanded="false">When and how do I get paid?
+        <span class="faq-icon"><svg viewBox="0 0 10 10" fill="none"><line x1="5" y1="1" x2="5" y2="9" stroke-width="1.6" stroke-linecap="round"/><line x1="1" y1="5" x2="9" y2="5" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+      </button>
+      <div class="faq-a"><p>We pay via bank transfer on the day of collection, processed before we leave. We do it this way for security and to keep our accounting clean — you'll have the payment sitting in your account straight away.</p></div>
+    </div>
+
+    <div class="faq-item" data-category="pricing">
+      <button class="faq-q" aria-expanded="false">Can I negotiate the offer?
+        <span class="faq-icon"><svg viewBox="0 0 10 10" fill="none"><line x1="5" y1="1" x2="5" y2="9" stroke-width="1.6" stroke-linecap="round"/><line x1="1" y1="5" x2="9" y2="5" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+      </button>
+      <div class="faq-a"><p>Our pricing is based on real resale data so the rates are fairly firm. If you think a specific piece has been undervalued — especially something vintage or branded — feel free to flag it and we'll take another look.</p></div>
+    </div>
+
+    <div class="faq-item" data-category="pricing">
+      <button class="faq-q" aria-expanded="false">What if I don't like the offer?
+        <span class="faq-icon"><svg viewBox="0 0 10 10" fill="none"><line x1="5" y1="1" x2="5" y2="9" stroke-width="1.6" stroke-linecap="round"/><line x1="1" y1="5" x2="9" y2="5" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+      </button>
+      <div class="faq-a"><p>No hard feelings — you're under no obligation. If the offer doesn't work for you, we'll hand everything back. There's never any pressure.</p></div>
+    </div>
+
+    <p class="section-label" data-section="clothing">What we accept</p>
+
+    <div class="faq-item" data-category="clothing">
+      <button class="faq-q" aria-expanded="false">What clothing do you accept?
+        <span class="faq-icon"><svg viewBox="0 0 10 10" fill="none"><line x1="5" y1="1" x2="5" y2="9" stroke-width="1.6" stroke-linecap="round"/><line x1="1" y1="5" x2="9" y2="5" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+      </button>
+      <div class="faq-a">
+        <p>We focus on <strong>adult men's and women's clothing</strong>. We're especially keen on men's pieces — hoodies, fleeces, jackets, sweaters, jeans, and anything surf, skate, vintage, or designer.</p>
+        <p>Children's clothing can come along for donation but won't be purchased. We don't accept shoes, bags, homewares, or other non-clothing items.</p>
+      </div>
+    </div>
+
+    <div class="faq-item" data-category="clothing">
+      <button class="faq-q" aria-expanded="false">Do you accept worn or damaged clothing?
+        <span class="faq-icon"><svg viewBox="0 0 10 10" fill="none"><line x1="5" y1="1" x2="5" y2="9" stroke-width="1.6" stroke-linecap="round"/><line x1="1" y1="5" x2="9" y2="5" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+      </button>
+      <div class="faq-a"><p>Yes — worn or damaged clothing won't be purchased, but we'll still take it and donate it to our local Auckland charity partner. Nothing goes to landfill.</p></div>
+    </div>
+
+    <div class="faq-item" data-category="clothing">
+      <button class="faq-q" aria-expanded="false">Do you take shoes, bags, or homewares?
+        <span class="faq-icon"><svg viewBox="0 0 10 10" fill="none"><line x1="5" y1="1" x2="5" y2="9" stroke-width="1.6" stroke-linecap="round"/><line x1="1" y1="5" x2="9" y2="5" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+      </button>
+      <div class="faq-a"><p>No — clothing only. We don't accept shoes, bags, belts, homewares, or other items. Bringing non-clothing items won't affect your booking, but we'll leave them behind.</p></div>
+    </div>
+
+    <div class="faq-item" data-category="clothing">
+      <button class="faq-q" aria-expanded="false">Does clothing need to be washed first?
+        <span class="faq-icon"><svg viewBox="0 0 10 10" fill="none"><line x1="5" y1="1" x2="5" y2="9" stroke-width="1.6" stroke-linecap="round"/><line x1="1" y1="5" x2="9" y2="5" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+      </button>
+      <div class="faq-a"><p>Clean is always better, but not a hard requirement. Just have it reasonably presentable and we'll take it from there.</p></div>
+    </div>
+
+    <p class="section-label" data-section="after">After we collect</p>
+
+    <div class="faq-item" data-category="after">
+      <button class="faq-q" aria-expanded="false">Where does the clothing go?
+        <span class="faq-icon"><svg viewBox="0 0 10 10" fill="none"><line x1="5" y1="1" x2="5" y2="9" stroke-width="1.6" stroke-linecap="round"/><line x1="1" y1="5" x2="9" y2="5" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+      </button>
+      <div class="faq-a">
+        <p>Quality adult clothing gets resold through our vintage store <strong>The Arkhives</strong> and online platforms — giving each piece a new owner. Everything else is donated to our Auckland charity partner for families in need.</p>
+        <p>Nothing ends up in landfill. Every piece has somewhere to go.</p>
+      </div>
+    </div>
+
+    <div class="faq-item" data-category="after">
+      <button class="faq-q" aria-expanded="false">Who do you donate to?
+        <span class="faq-icon"><svg viewBox="0 0 10 10" fill="none"><line x1="5" y1="1" x2="5" y2="9" stroke-width="1.6" stroke-linecap="round"/><line x1="1" y1="5" x2="9" y2="5" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+      </button>
+      <div class="faq-a"><p>We currently donate to <strong>Dove Hospice</strong>, serving the Glenn Innes and Pakuranga communities. It's a cause close to home given our East Auckland base. We're also in the process of formalising a long-term charity partnership, so this may evolve — but rest assured, donated clothing always goes somewhere meaningful.</p></div>
+    </div>
+
+    <div class="faq-item" data-category="after">
+      <button class="faq-q" aria-expanded="false">Are you a business or a charity?
+        <span class="faq-icon"><svg viewBox="0 0 10 10" fill="none"><line x1="5" y1="1" x2="5" y2="9" stroke-width="1.6" stroke-linecap="round"/><line x1="1" y1="5" x2="9" y2="5" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+      </button>
+      <div class="faq-a"><p>We're a real business — we buy clothing to resell it, and we're upfront about that. Quality clothes stay in circulation longer, out of landfill, and you get paid. The charity donation is a genuine part of how we handle lower-value items.</p></div>
+    </div>
+
+    <div class="cta-card">
+      <h2>Still not sure?</h2>
+      <p>Book a free pickup — no obligation. We'll assess everything on the spot and you can decide from there.</p>
+      <a href="https://lost-and-found.co.nz/#book" class="btn-white">Book a free pickup →</a>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>© 2025 Lost & Found Auckland · <a href="https://www.instagram.com/lostandfoundauckland">Instagram</a> · <a href="https://lost-and-found.co.nz">Back to home</a></p>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.faq-q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(i => {
+          i.classList.remove('open');
+          i.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        document.querySelectorAll('.faq-item').forEach(item => {
+          const show = filter === 'all' || item.dataset.category === filter;
+          item.setAttribute('data-hidden', show ? 'false' : 'true');
+          if (!show) item.classList.remove('open');
+        });
+        document.querySelectorAll('.section-label').forEach(label => {
+          label.style.display = (filter === 'all' || label.dataset.section === filter) ? '' : 'none';
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
