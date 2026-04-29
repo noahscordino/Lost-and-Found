@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pricing — Lost & Found Clothing Collection, Auckland</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;1,300;1,400&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --burg: #7D2340; --burg-deep: #4E1227; --burg-mid: #A33058;
+  --burg-pale: #F5E6EC; --mustard: #D4922A; --mustard-pale: #FDF3DE;
+  --blush: #F2D5DC; --cream: #FDF8F2; --warm-white: #FEFCF9;
+  --text: #2A1A20; --text-mid: #6B4455; --text-light: #A07888;
+  --border: rgba(125,35,64,0.12);
+  --green: #2E7D4F; --green-pale: #EEF5F0;
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'Nunito', sans-serif; background: var(--warm-white); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+
+/* NAV */
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.1rem 2.5rem; background: rgba(254,252,249,0.94); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+.nav-logo { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 400; color: var(--burg); text-decoration: none; }
+.nav-logo .amp { color: var(--mustard); font-style: italic; }
+.nav-links { display: flex; gap: 2rem; align-items: center; }
+.nav-links a { font-size: 14px; font-weight: 500; color: var(--text-mid); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: var(--burg); }
+.nav-links a.active { color: var(--burg); font-weight: 700; }
+.nav-cta { background: var(--burg) !important; color: white !important; padding: 9px 22px !important; border-radius: 40px !important; font-weight: 700 !important; }
+.nav-cta:hover { background: var(--burg-deep) !important; }
+
+/* SHARED */
+.eyebrow { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--burg-mid); margin-bottom: 0.75rem; }
+.section-h { font-family: 'Fraunces', serif; font-size: clamp(28px, 3.5vw, 44px); font-weight: 300; color: var(--burg-deep); line-height: 1.15; letter-spacing: -0.02em; }
+.section-p { font-size: 16px; color: var(--text-mid); line-height: 1.8; }
+.container { max-width: 1080px; margin: 0 auto; }
+section { padding: 6rem 2.5rem; }
+
+/* PAGE HERO */
+.page-hero { background: var(--cream); padding: 9rem 2.5rem 5rem; }
+.page-hero-inner { max-width: 680px; margin: 0 auto; text-align: center; animation: fadeUp 0.8s ease both; }
+.page-hero h1 { font-family: 'Fraunces', serif; font-size: clamp(38px, 5vw, 60px); font-weight: 300; color: var(--burg-deep); line-height: 1.08; letter-spacing: -0.02em; margin-bottom: 1.25rem; }
+.page-hero h1 em { font-style: italic; color: var(--mustard); }
+.page-hero-sub { font-size: 17px; color: var(--text-mid); line-height: 1.8; max-width: 520px; margin: 0 auto; }
+
+/* GRADES */
+.grades { background: var(--warm-white); }
+.funds-note { display: flex; align-items: flex-start; gap: 1rem; background: var(--burg-deep); border-radius: 16px; padding: 1.25rem 1.5rem; }
+.funds-note-icon { font-family: 'Fraunces', serif; font-size: 24px; font-style: italic; color: var(--mustard); flex-shrink: 0; line-height: 1.3; }
+.funds-note strong { color: var(--warm-white); font-size: 14px; }
+.funds-note div { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.65; }
+.grades-stack { display: flex; flex-direction: column; gap: 2rem; margin-top: 3.5rem; }
+
+.grade-card { border-radius: 20px; overflow: hidden; display: grid; grid-template-columns: 280px 1fr; border: 1.5px solid var(--border); }
+.grade-card.premium { border-color: var(--burg-mid); }
+.grade-card.standard { border-color: var(--border); }
+.grade-card.donate { border-color: var(--green); }
+
+.grade-left { padding: 2.5rem 2rem; display: flex; flex-direction: column; justify-content: space-between; }
+.grade-card.premium .grade-left { background: var(--burg-deep); }
+.grade-card.standard .grade-left { background: var(--cream); }
+.grade-card.donate .grade-left { background: var(--green-pale); }
+
+.grade-badge { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; padding: 4px 12px; border-radius: 20px; display: inline-block; margin-bottom: 1.25rem; width: fit-content; }
+.grade-card.premium .grade-badge { background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.85); }
+.grade-card.standard .grade-badge { background: var(--burg-pale); color: var(--burg); }
+.grade-card.donate .grade-badge { background: var(--green); color: white; }
+
+.grade-title { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 400; margin-bottom: 0.5rem; }
+.grade-card.premium .grade-title { color: rgba(255,255,255,0.95); }
+.grade-card.standard .grade-title { color: var(--burg-deep); }
+.grade-card.donate .grade-title { color: var(--green); }
+
+.grade-price { font-family: 'Fraunces', serif; font-size: 42px; font-weight: 300; line-height: 1; margin-top: 1.5rem; }
+.grade-card.premium .grade-price { color: var(--mustard); }
+.grade-card.standard .grade-price { color: var(--burg); }
+.grade-card.donate .grade-price { color: var(--green); font-size: 28px; margin-top: auto; padding-top: 1.5rem; }
+
+.grade-price-unit { font-family: 'Nunito', sans-serif; font-size: 13px; font-weight: 500; margin-top: 4px; }
+.grade-card.premium .grade-price-unit { color: rgba(255,255,255,0.4); }
+.grade-card.standard .grade-price-unit { color: var(--text-light); }
+.grade-card.donate .grade-price-unit { color: #5a9e78; }
+
+.grade-right { padding: 2.5rem 2rem; background: var(--warm-white); display: flex; flex-direction: column; gap: 1.5rem; }
+.grade-card.donate .grade-right { background: #f8fdf9; }
+
+.grade-desc { font-size: 14px; color: var(--text-mid); line-height: 1.75; }
+.grade-card.donate .grade-desc { color: #3d7a58; }
+
+.grade-examples { display: flex; flex-direction: column; gap: 0.6rem; }
+.grade-examples-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-light); margin-bottom: 0.25rem; }
+.grade-card.donate .grade-examples-title { color: #5a9e78; }
+
+.grade-tag { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text-mid); }
+.grade-tag::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--burg-pale); flex-shrink: 0; }
+.grade-card.donate .grade-tag { color: #3d7a58; }
+.grade-card.donate .grade-tag::before { background: #a8d5ba; }
+
+.grade-note { font-size: 12px; font-style: italic; color: var(--text-light); margin-top: auto; padding-top: 0.75rem; border-top: 1px solid var(--border); }
+.grade-card.donate .grade-note { color: #5a9e78; border-color: rgba(46,125,79,0.15); }
+
+/* NOT ACCEPTED */
+.not-accepted { background: var(--blush); }
+.na-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 3rem; }
+.na-card { background: var(--warm-white); border: 1.5px solid var(--border); border-radius: 16px; padding: 1.75rem 1.5rem; }
+.na-ico { font-size: 26px; margin-bottom: 0.75rem; display: block; }
+.na-title { font-size: 14px; font-weight: 700; color: var(--burg-deep); margin-bottom: 0.5rem; }
+.na-body { font-size: 13px; color: var(--text-mid); line-height: 1.7; }
+.na-tip { background: var(--mustard-pale); border-left: 3px solid var(--mustard); border-radius: 0 12px 12px 0; padding: 1rem 1.25rem; margin-top: 2rem; font-size: 14px; color: var(--text-mid); line-height: 1.65; }
+.na-tip strong { color: var(--burg-deep); }
+
+/* HOW ASSESSED */
+.assessed { background: var(--warm-white); }
+.assessed-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem; margin-top: 3.5rem; }
+.as-card { background: var(--cream); border: 1.5px solid var(--border); border-radius: 16px; padding: 2rem 1.5rem; }
+.as-num { font-family: 'Fraunces', serif; font-size: 40px; font-weight: 300; color: var(--burg-pale); line-height: 1; margin-bottom: 0.75rem; }
+.as-title { font-size: 14px; font-weight: 700; color: var(--burg-deep); margin-bottom: 0.5rem; }
+.as-body { font-size: 13px; color: var(--text-mid); line-height: 1.7; }
+
+/* HONESTY */
+.honesty { background: var(--mustard); padding: 3.5rem 2.5rem; text-align: center; }
+.honesty-inner { max-width: 580px; margin: 0 auto; }
+.honesty h2 { font-family: 'Fraunces', serif; font-size: clamp(20px, 3vw, 32px); color: var(--burg-deep); font-weight: 300; font-style: italic; line-height: 1.3; }
+
+/* FAQ */
+.faq-section { background: var(--cream); }
+.faq-list { margin-top: 3rem; display: flex; flex-direction: column; gap: 0; border: 1.5px solid var(--border); border-radius: 20px; overflow: hidden; }
+.faq-item { border-bottom: 1px solid var(--border); }
+.faq-item:last-child { border-bottom: none; }
+.faq-q { width: 100%; background: none; border: none; padding: 1.5rem 1.75rem; text-align: left; font-family: 'Nunito', sans-serif; font-size: 15px; font-weight: 700; color: var(--burg-deep); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+.faq-q:hover { background: var(--burg-pale); }
+.faq-arrow { font-size: 18px; color: var(--burg-mid); transition: transform 0.25s; flex-shrink: 0; }
+.faq-item.open .faq-arrow { transform: rotate(180deg); }
+.faq-a { display: none; padding: 0 1.75rem 1.5rem; font-size: 14px; color: var(--text-mid); line-height: 1.8; }
+.faq-item.open .faq-a { display: block; }
+
+/* CTA */
+.cta-strip { background: var(--burg-deep); padding: 6rem 2.5rem; text-align: center; position: relative; overflow: hidden; }
+.cta-strip::before { content: ''; position: absolute; top: -200px; right: -200px; width: 500px; height: 500px; border-radius: 50%; background: var(--burg); opacity: 0.4; }
+.cta-strip-inner { position: relative; z-index: 1; }
+.cta-strip h2 { font-family: 'Fraunces', serif; font-size: clamp(28px, 4vw, 48px); font-weight: 300; color: var(--warm-white); margin-bottom: 1rem; letter-spacing: -0.02em; }
+.cta-strip h2 em { font-style: italic; color: var(--mustard); }
+.cta-strip p { font-size: 16px; color: rgba(255,255,255,0.5); margin-bottom: 2rem; }
+.btn-main { background: var(--mustard); color: var(--burg-deep); padding: 14px 30px; border-radius: 40px; font-size: 15px; font-weight: 700; text-decoration: none; transition: background 0.2s, transform 0.15s; display: inline-block; }
+.btn-main:hover { background: #e8a83a; transform: translateY(-2px); }
+
+/* FOOTER */
+footer { background: var(--cream); padding: 2.5rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.25rem; }
+.footer-logo { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 400; color: var(--burg); }
+.footer-logo .amp { color: var(--mustard); font-style: italic; }
+.footer-tagline { font-size: 13px; color: var(--text-light); line-height: 1.6; }
+.footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+.footer-links a { font-size: 13px; color: var(--text-mid); text-decoration: none; }
+.footer-links a:hover { color: var(--burg); }
+
+@keyframes fadeUp { from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);} }
+
+@media (max-width: 820px) {
+  nav { padding: 1rem 1.25rem; }
+  .nav-links { display: none; }
+  section { padding: 4rem 1.25rem; }
+  .page-hero { padding: 7rem 1.25rem 3.5rem; }
+  .grade-card { grid-template-columns: 1fr; }
+  .na-grid, .assessed-grid { grid-template-columns: 1fr; }
+  footer { flex-direction: column; align-items: flex-start; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">Lost <span class="amp">&</span> Found</a>
+  <div class="nav-links">
+    <a href="/#how">How it works</a>
+    <a href="/#happens">What we do</a>
+    <a href="/pricing.html" class="active">Pricing</a>
+    <a href="/about.html">About us</a>
+    <a href="/faq.html">FAQ</a>
+    <a href="https://www.instagram.com/lostandfoundauckland" target="_blank" rel="noopener">Instagram</a>
+    <a href="/#book" class="nav-cta">Book a pickup</a>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="eyebrow">How we pay</div>
+    <h1>Straightforward pricing.<br><em>Paid on the day.</em></h1>
+    <p class="page-hero-sub">We assess your clothing at the door and pay via bank transfer before we leave. No guessing, no follow-up invoices, no waiting.</p>
+  </div>
+</div>
+
+<!-- GRADE CARDS -->
+<section class="grades">
+  <div class="container">
+    <div class="funds-note">
+      <span class="funds-note-icon">↩</span>
+      <div>
+        <strong>Why the pickup and donation are free:</strong> Reselling quality clothing is what funds the whole operation. No fees, no catches — the resale value covers it.
+      </div>
+    </div>
+    <div class="eyebrow" style="margin-top:3rem;">The three grades</div>
+    <h2 class="section-h">Every item gets sorted on the spot.</h2>
+    <p class="section-p" style="margin-top:1rem;">We make one overall grade decision for your collection — you'll know exactly what you're getting before we take anything.</p>
+
+    <div class="grades-stack">
+
+      <!-- PREMIUM -->
+      <div class="grade-card premium">
+        <div class="grade-left">
+          <div>
+            <span class="grade-badge">Premium grade</span>
+            <div class="grade-title">Valuable &amp; resellable clothing</div>
+          </div>
+          <div>
+            <div class="grade-price">$5–15</div>
+            <div class="grade-price-unit">per piece · assessed individually</div>
+          </div>
+        </div>
+        <div class="grade-right">
+          <div class="grade-desc">Reserved for pieces with real resale value — brands people actually seek out, condition that holds up, styles that move. These are assessed one by one, not lumped together. Men's pieces are especially sought after right now.</div>
+          <div class="grade-examples">
+            <div class="grade-examples-title">What qualifies</div>
+            <span class="grade-tag">Vintage Levi's, Wrangler, Lee denim</span>
+            <span class="grade-tag">Surf & skate — Billabong, Quiksilver, Volcom, Ripcurl</span>
+            <span class="grade-tag">Outdoor & workwear — Carhartt, Patagonia, Arc'teryx</span>
+            <span class="grade-tag">Designer labels in good condition</span>
+            <span class="grade-tag">Rugby jerseys, band tees, graphic tees with character</span>
+            <span class="grade-tag">Quality men's shirts, jackets, trousers</span>
+          </div>
+          <div class="grade-note">Tip: flag any standout pieces when you book — we'll look out for them.</div>
+        </div>
+      </div>
+
+      <!-- STANDARD -->
+      <div class="grade-card standard">
+        <div class="grade-left">
+          <div>
+            <span class="grade-badge">Standard grade</span>
+            <div class="grade-title">General adult clothing</div>
+          </div>
+          <div>
+            <div class="grade-price">$3–7</div>
+            <div class="grade-price-unit">per kg · whole collection, one price</div>
+          </div>
+        </div>
+        <div class="grade-right">
+          <div class="grade-desc">Most collections fall here. Wearable adult clothing in mixed condition — no standout pieces, but clean and sellable. We weigh the lot and pay a flat rate per kilogram. Simple, fast, no haggling.</div>
+          <div class="grade-examples">
+            <div class="grade-examples-title">What qualifies</div>
+            <span class="grade-tag">Everyday adult men's and women's clothing</span>
+            <span class="grade-tag">Good condition, no major damage</span>
+            <span class="grade-tag">Mixed labels and styles</span>
+            <span class="grade-tag">Tops, bottoms, dresses, knitwear</span>
+            <span class="grade-tag">Coats and jackets without brand premium</span>
+          </div>
+          <div class="grade-note">A typical wardrobe clear-out — 3 bags of mixed adult clothing — usually lands here.</div>
+        </div>
+      </div>
+
+      <!-- DONATE -->
+      <div class="grade-card donate">
+        <div class="grade-left">
+          <div>
+            <span class="grade-badge">Donation grade</span>
+            <div class="grade-title">Worn, damaged, or low-value items</div>
+          </div>
+          <div>
+            <div class="grade-price">Donated free</div>
+            <div class="grade-price-unit">to Dove Hospice · nothing to landfill</div>
+          </div>
+        </div>
+        <div class="grade-right">
+          <div class="grade-desc">Anything we can't resell goes to Dove Hospice in Glenn Innes and Pakuranga. We don't charge for this — it's part of the deal. Nothing gets thrown out.</div>
+          <div class="grade-examples">
+            <div class="grade-examples-title">What goes here</div>
+            <span class="grade-tag">Children's and kids' clothing (all of it)</span>
+            <span class="grade-tag">Adult clothing with heavy wear or damage</span>
+            <span class="grade-tag">Low-value or unbranded items we can't resell</span>
+            <span class="grade-tag">Clothing mixed into a premium or standard lot</span>
+          </div>
+          <div class="grade-note">You don't need to sort anything before we arrive — we handle the grading on the day.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE DON'T TAKE -->
+<section class="not-accepted">
+  <div class="container">
+    <div class="eyebrow">What we don't collect</div>
+    <h2 class="section-h">Clothing only — and we're strict about it.</h2>
+    <p class="section-p" style="margin-top:1rem;">We focus entirely on adult clothing because that's where we can do our job properly. Everything else is outside our scope.</p>
+    <div class="na-grid">
+      <div class="na-card">
+        <span class="na-ico">👟</span>
+        <div class="na-title">No shoes or footwear</div>
+        <div class="na-body">We don't collect shoes, boots, sandals, or any footwear — even high-end brands. This isn't something we'll make exceptions on.</div>
+      </div>
+      <div class="na-card">
+        <span class="na-ico">👜</span>
+        <div class="na-title">No bags or accessories</div>
+        <div class="na-body">Handbags, backpacks, belts, hats, scarves — not accepted. Clothing only means clothing only.</div>
+      </div>
+      <div class="na-card">
+        <span class="na-ico">🏠</span>
+        <div class="na-title">No homewares or linen</div>
+        <div class="na-body">Bedding, towels, curtains, cushions — none of it. We're a clothing service, not a general op shop collection.</div>
+      </div>
+      <div class="na-card">
+        <span class="na-ico">🧸</span>
+        <div class="na-title">No toys, books, or electronics</div>
+        <div class="na-body">If it's not a piece of clothing, we can't take it. Kids' clothes are fine (donated) — everything else isn't.</div>
+      </div>
+    </div>
+    <div class="na-tip"><strong>Got a mix?</strong> That's fine — just bag your clothing separately and leave the rest. You don't need to sort clothing into grades; we do that. Just keep non-clothing items out of the bags.</div>
+  </div>
+</section>
+
+<!-- HOW WE ASSESS -->
+<section class="assessed">
+  <div class="container">
+    <div class="eyebrow">On the day</div>
+    <h2 class="section-h">How the assessment works.</h2>
+    <div class="assessed-grid">
+      <div class="as-card">
+        <div class="as-num">01</div>
+        <div class="as-title">We look through everything</div>
+        <div class="as-body">We go through your bags at the door, pulling out anything that looks premium. This takes 5–15 minutes depending on the volume.</div>
+      </div>
+      <div class="as-card">
+        <div class="as-num">02</div>
+        <div class="as-title">We make you an offer</div>
+        <div class="as-body">Premium pieces get individual prices. The rest gets weighed. We give you a total and you decide — no pressure, no obligation to accept.</div>
+      </div>
+      <div class="as-card">
+        <div class="as-num">03</div>
+        <div class="as-title">Paid before we leave</div>
+        <div class="as-body">If you're happy, we pay via bank transfer on the spot. Everything we take goes with us — nothing gets left behind to sort later.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HONESTY -->
+<div class="honesty">
+  <div class="honesty-inner">
+    <h2>"We're a resale business — and we're upfront about that. Great clothing deserves a second life, not a landfill."</h2>
+  </div>
+</div>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="container">
+    <div class="eyebrow">Common questions</div>
+    <h2 class="section-h">Pricing FAQ.</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggle(this)">Do I need to sort my clothing before you arrive? <span class="faq-arrow">↓</span></button>
+        <div class="faq-a">No — just bag it up. We do all the sorting and grading on the day. You don't need to separate by grade, gender, or type. The only thing we ask is that non-clothing items (shoes, bags, homewares) aren't mixed in.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggle(this)">What if I'm not happy with the offer? <span class="faq-arrow">↓</span></button>
+        <div class="faq-a">No problem. There's no obligation to accept. If the offer doesn't feel right, we leave empty-handed — no hard feelings, no fee. We'd rather you're comfortable with the deal than feel pressured.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggle(this)">How do you decide if something is premium vs standard? <span class="faq-arrow">↓</span></button>
+        <div class="faq-a">Brand, condition, and resale demand. We're looking for pieces people actively search for — surf, skate, vintage denim, outdoor brands, designer labels. If something's in great condition but doesn't have that resale pull, it goes to standard grade. We'll always explain our reasoning if you ask.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggle(this)">Can I get a quote before you arrive? <span class="faq-arrow">↓</span></button>
+        <div class="faq-a">We can give you a rough sense based on what you describe when you book — especially if you mention specific brands or pieces. But we can't give a firm quote without seeing the clothing. The assessment happens on the day.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggle(this)">How do you pay? <span class="faq-arrow">↓</span></button>
+        <div class="faq-a">Bank transfer, processed on the day before we leave your property. We don't pay cash. Make sure you have your account number handy — most people just have it saved in their phone.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggle(this)">What happens to kids' clothing? <span class="faq-arrow">↓</span></button>
+        <div class="faq-a">Kids' clothing goes straight to Dove Hospice — we don't pay for it, but we do collect it. It won't go to landfill. If you have a bag of kids' stuff alongside adult clothing, just let us know and we'll keep it separate.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggle(this)">I have a lot of clothing — will that affect the price? <span class="faq-arrow">↓</span></button>
+        <div class="faq-a">Volume doesn't change our per-piece or per-kg rate, but it does mean we'll take more time assessing and may find more premium pieces. Mention it when you book so we can plan enough time for the pickup.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-strip">
+  <div class="cta-strip-inner">
+    <h2>Ready to find out<br>what your clothing is <em>worth?</em></h2>
+    <p>Book a free pickup — we'll assess on the spot, no obligation.</p>
+    <a href="/#book" class="btn-main">Book a free pickup →</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo">Lost <span class="amp">&</span> Found</div>
+  <div class="footer-tagline">Auckland-wide · Free pickup · Zero waste<br>
+    <a href="tel:0223225100" style="color:var(--text-light);text-decoration:none;">022 322 5100</a>
+  </div>
+  <div class="footer-links">
+    <a href="/#how">How it works</a>
+    <a href="/pricing.html">Pricing</a>
+    <a href="/about.html">About us</a>
+    <a href="/faq.html">FAQ</a>
+    <a href="https://www.instagram.com/lostandfoundauckland" target="_blank" rel="noopener">Instagram</a>
+  </div>
+</footer>
+
+<script>
+function toggle(btn) {
+  const item = btn.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+</script>
+</body>
+</html>
