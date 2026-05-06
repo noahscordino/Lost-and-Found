@@ -152,6 +152,17 @@ section { padding: 6rem 2.5rem; }
 .btn-submit { background: var(--mustard); color: var(--burg-deep); border: none; padding: 15px 36px; border-radius: 40px; font-size: 15px; font-weight: 700; cursor: pointer; font-family: 'Nunito', sans-serif; transition: background 0.2s, transform 0.15s; align-self: flex-start; }
 .btn-submit:hover { background: #e8a83a; transform: translateY(-2px); }
 
+/* PICKUP REQUIREMENTS */
+.pickup-reqs { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.14); border-radius: 16px; padding: 1.25rem 1.5rem; margin-bottom: 2.5rem; }
+.pickup-reqs-title { font-size: 13px; font-weight: 700; color: var(--mustard); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem; }
+.pickup-reqs-grid { display: grid; grid-template-columns: 1fr; gap: 0.65rem; }
+.req-item { display: flex; align-items: flex-start; gap: 10px; }
+.req-ico { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 400; color: var(--mustard); flex-shrink: 0; margin-top: 1px; width: 24px; text-align: center; }
+.req-text strong { display: block; font-size: 13px; font-weight: 700; color: rgba(255,255,255,0.85); margin-bottom: 2px; }
+.req-text span { font-size: 12px; color: rgba(255,255,255,0.45); line-height: 1.5; display: block; white-space: normal; }
+.req-or { grid-column: 1 / -1; text-align: center; font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.25); text-transform: uppercase; letter-spacing: 0.1em; padding: 0.25rem 0; }
+@media (max-width: 820px) { .pickup-reqs-grid { grid-template-columns: 1fr; } }
+
 /* FOOTER */
 footer { background: var(--cream); padding: 2.5rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.25rem; }
 .footer-logo { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 400; color: var(--burg); }
@@ -374,6 +385,34 @@ footer { background: var(--cream); padding: 2.5rem; border-top: 1px solid var(--
     <div class="eyebrow">Let's do it</div>
     <h2 class="section-h">Book your free collection</h2>
     <p class="section-p">Takes two minutes. We'll confirm within 24 hours.</p>
+    <div class="pickup-reqs">
+      <div class="pickup-reqs-title">Is my collection eligible?</div>
+      <div class="pickup-reqs-grid">
+        <div class="req-item">
+          <div class="req-ico">1</div>
+          <div class="req-text">
+            <strong>At least 4 supermarket bags of clothing</strong>
+            <span>Minimum volume to make the trip worthwhile</span>
+          </div>
+        </div>
+        <div class="req-or">— or —</div>
+        <div class="req-item">
+          <div class="req-ico">2</div>
+          <div class="req-text">
+            <strong>Designer or vintage pieces</strong>
+            <span>Surf, skate, streetwear, luxury — even one standout item qualifies</span>
+          </div>
+        </div>
+        <div class="req-item" style="margin-top: 0.5rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.08);">
+          <div class="req-ico">3</div>
+          <div class="req-text">
+            <strong>Gently used adult clothing only</strong>
+            <span>No shoes, bags, or homewares — kids' clothing is donated, not paid for</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p style="font-size:12px;color:rgba(255,255,255,0.35);margin-bottom:2rem;margin-top:-1.75rem;"><strong style="color:rgba(255,255,255,0.5);">Note:</strong> We accept all drop-offs of gently used adult clothing — no minimum required.</p>
     <form class="form" action="https://formspree.io/f/xjgpadae" method="POST" onsubmit="handleSubmit(event)">
       <div class="f-row">
         <div class="f-grp"><label for="first-name">First name</label><input id="first-name" type="text" name="First name" placeholder="Alex" required /></div>
@@ -405,30 +444,25 @@ footer { background: var(--cream); padding: 2.5rem; border-top: 1px solid var(--
             <option>Sunday</option>
           </select>
         </div>
-        <div class="f-grp">
-          <label for="time">Preferred time</label>
-          <select id="time" name="Preferred time">
-            <option value="">Flexible</option>
-            <option>Morning (8am–12pm)</option>
-            <option>Afternoon (12pm–5pm)</option>
-            <option>Evening (5pm–7pm)</option>
-          </select>
-        </div>
       </div>
       <div class="f-grp">
-        <label for="bags">Rough number of bags</label>
+        <label for="bags">Rough number of bags <span style="font-weight:400;opacity:0.6;">(use supermarket bags as reference)</span></label>
         <select id="bags" name="Number of bags">
           <option value="">Not sure yet</option>
           <option>1 bag</option>
-          <option>2–3 bags</option>
-          <option>4+ bags</option>
+          <option>2 bags</option>
+          <option>3 bags</option>
+          <option>4 bags</option>
+          <option>5 bags</option>
+          <option>6–8 bags</option>
+          <option>9–12 bags</option>
+          <option>12+ bags</option>
         </select>
       </div>
       <div class="f-grp">
-        <label for="perceived-value">Any premium or valuable items? (optional)</label>
-        <input id="perceived-value" type="text" name="Items of perceived value" placeholder="e.g. Vintage Levi's, Carhartt jacket, Patagonia fleece..." />
+        <label for="description">Briefly describe your clothing <span style="font-weight:400;opacity:0.6;">(brands, gender, type of clothing, etc.)</span></label>
+        <textarea id="description" name="Clothing description" placeholder="e.g. Mostly men's — Levi's jeans, a Carhartt jacket, some vintage surf tees, a few women's dresses..." required></textarea>
       </div>
-      <div class="f-grp"><label for="details">Anything else we should know</label><textarea id="details" name="Other details" placeholder="e.g. Mostly outerwear, some surf gear..."></textarea></div>
       <div class="form-note">📍 We come to you (Fri–Sun), or drop off at <strong style="color:rgba(255,255,255,0.55);">4 Megan Ave, Pakuranga Heights</strong>. Adult clothing only — no shoes, bags, or homewares.</div>
       <button type="submit" class="btn-submit">Request my pickup →</button>
     </form>
