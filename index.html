@@ -128,6 +128,10 @@ section { padding: 6rem 2.5rem; }
 .pp.premium .pp-price { color: rgba(255,255,255,0.95); }
 .pp.donate-tier .pp-price { color: #2E7D4F; font-size: 22px; }
 .pp-desc { font-size: 13px; color: var(--text-mid); line-height: 1.55; }
+.pp-tags { list-style: none; margin: 0.75rem 0 0; padding: 0; display: flex; flex-direction: column; gap: 5px; }
+.pp-tags li { font-size: 12.5px; color: var(--text-mid); line-height: 1.5; padding-left: 14px; position: relative; }
+.pp-tags li::before { content: '•'; position: absolute; left: 0; color: var(--mustard); font-weight: 700; }
+.pp.premium .pp-tags li { color: rgba(255,255,255,0.6); }
 .pp.premium .pp-desc { color: rgba(255,255,255,0.55); }
 .pp.donate-tier .pp-desc { color: #2E7D4F; }
 .pp-link { margin-top: auto; padding-top: 1.25rem; font-size: 13px; font-weight: 700; color: var(--burg-deep); text-decoration: none; border-bottom: 1.5px solid var(--mustard); padding-bottom: 2px; display: inline-block; }
@@ -347,30 +351,40 @@ footer { background: var(--cream); padding: 2.5rem; border-top: 1px solid var(--
 <!-- PRICING -->
 <section class="pricing" id="pricing">
   <div class="container">
-    <div class="eyebrow">How we pay</div>
-    <h2 class="section-h">Simple, fair, on the day</h2>
-    <p class="section-p">We assess everything at your door and pay via bank transfer before we leave.</p>
+    <div class="eyebrow">What we buy</div>
+    <h2 class="section-h">We're picky, in a good way</h2>
+    <p class="section-p">We pay cash on the spot for what we can resell. No published rates — we make you a fair offer based on what you've actually got.</p>
     <div class="pricing-grid">
       <div class="pp premium">
-        <span class="pp-badge">Premium grade</span>
-        <div class="pp-name">Valuable & resellable clothing</div>
-        <div class="pp-sub">e.g. surf, skate, sportswear, vintage, designer brands</div>
-        <div class="pp-price">$5–15</div>
-        <div class="pp-desc">per piece · assessed individually · men's pieces especially sought after</div>
+        <span class="pp-badge">Most wanted</span>
+        <div class="pp-name">Vintage, designer & streetwear</div>
+        <ul class="pp-tags">
+          <li>Vintage & retro pieces</li>
+          <li>Designer labels</li>
+          <li>Streetwear — Supreme, Stüssy, Carhartt & similar</li>
+          <li>Surf & skate brands</li>
+          <li>Sportswear & sneaker culture</li>
+          <li>Quality denim</li>
+        </ul>
+        <div class="pp-desc" style="margin-top:0.75rem;">Paid individually — assessed piece by piece, even a single standout item</div>
       </div>
       <div class="pp">
-        <span class="pp-badge" style="background:var(--burg-pale);color:var(--burg);">Standard grade</span>
-        <div class="pp-name">General adult clothing</div>
-        <div class="pp-sub">Wearable condition, mixed labels</div>
-        <div class="pp-price">$3–7</div>
-        <div class="pp-desc">per kg · one grade decision for the whole collection</div>
+        <span class="pp-badge" style="background:var(--burg-pale);color:var(--burg);">Also welcome</span>
+        <div class="pp-name">Quality everyday clothing</div>
+        <ul class="pp-tags">
+          <li>Everyday brands in good condition</li>
+          <li>Basics, tees & staples</li>
+          <li>Jackets & outerwear</li>
+          <li>Activewear & athleisure</li>
+          <li>Bulk or mixed collections</li>
+        </ul>
+        <div class="pp-desc" style="margin-top:0.75rem;">Paid per kg — one grade decision for the whole collection</div>
       </div>
       <div class="pp donate-tier">
-        <span class="pp-badge" style="background:#2E7D4F;color:white;">Donation grade</span>
+        <span class="pp-badge" style="background:#2E7D4F;color:white;">Donated</span>
         <div class="pp-name">Worn, damaged or low-value</div>
         <div class="pp-sub">Kids' clothing, heavy wear, no-label</div>
-        <div class="pp-price">Donated free</div>
-        <div class="pp-desc">Goes to Dove Hospice — nothing to landfill</div>
+        <div class="pp-desc" style="margin-top:0.5rem;">Goes to local charities and op shops — including Dove Hospice, Pregnancy Choice, Red Cross and the Salvation Army</div>
       </div>
       <div class="pp cta-tier">
         <span class="pp-badge">📅</span>
@@ -379,7 +393,7 @@ footer { background: var(--cream); padding: 2.5rem; border-top: 1px solid var(--
         <a href="#book" class="pp-link">Get started →</a>
       </div>
     </div>
-    <div class="pricing-note"><strong>Adult clothing only.</strong> We collect adult men's and women's clothing — including sportswear, activewear, and athleisure — but not shoes, bags, homewares, or children's clothing. Kids' clothing can be donated. <a href="#book" style="color:var(--burg);font-weight:700;">Got something valuable? Let us know when you book →</a></div>
+    <div class="pricing-note"><strong>Adult clothing only.</strong> We buy adult men's and women's clothing — including sportswear, activewear, and athleisure — but not shoes, bags, homewares, or children's clothing. Kids' clothing can be donated. <a href="#book" style="color:var(--burg);font-weight:700;">Got something valuable? Let us know when you book →</a></div>
   </div>
 </section>
 
@@ -388,7 +402,7 @@ footer { background: var(--cream); padding: 2.5rem; border-top: 1px solid var(--
   <div class="booking-inner">
     <div class="eyebrow">Let's do it</div>
     <h2 class="section-h">Sell us your closet</h2>
-    <p class="section-p">Tell us what you've got. We review every request personally and get back to you as soon as we can — no bot bookings, no promises we can't keep.</p>
+    <p class="section-p">Tell us what you've got. We review every request personally and get back to you as soon as we can.</p>
     <div class="pathways">
       <div class="pathway">
         <div class="pathway-emoji">📦</div>
