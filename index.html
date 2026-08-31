@@ -136,6 +136,14 @@ section { padding: 6rem 2.5rem; }
 .pp.donate-tier .pp-desc { color: #2E7D4F; }
 .pp-link { margin-top: auto; padding-top: 1.25rem; font-size: 13px; font-weight: 700; color: var(--burg-deep); text-decoration: none; border-bottom: 1.5px solid var(--mustard); padding-bottom: 2px; display: inline-block; }
 .pricing-note { margin-top: 1.5rem; padding: 1rem 1.25rem; background: var(--mustard-pale); border-radius: 12px; border-left: 3px solid var(--mustard); font-size: 14px; color: var(--text-mid); line-height: 1.65; }
+.brands { margin-top: 3.5rem; text-align: center; }
+.brands-title { font-family: 'Fraunces', serif; font-style: italic; font-size: clamp(18px, 2vw, 22px); font-weight: 400; color: var(--burg-deep); margin-bottom: 1.25rem; }
+.brands-grid { display: grid; grid-template-columns: repeat(5,auto); gap: 0.6rem 2rem; justify-content: center; }
+.brands-grid div { font-size: 14px; color: var(--text-mid); font-weight: 500; white-space: nowrap; }
+.brands-note { margin-top: 1.5rem; font-size: 13px; color: var(--text-light); font-style: italic; }
+@media (max-width: 700px) {
+  .brands-grid { grid-template-columns: repeat(2,auto); }
+}
 
 /* BOOKING */
 .booking { background: var(--burg-deep); padding: 6rem 2.5rem; position: relative; overflow: hidden; }
@@ -373,11 +381,11 @@ footer { background: var(--cream); padding: 2.5rem; border-top: 1px solid var(--
         <div class="pp-name">Vintage, designer & streetwear</div>
         <ul class="pp-tags">
           <li>Vintage & retro pieces with character</li>
-          <li>Designer labels (e.g Ralph Lauren, Tommy Hilfiger or Ted Baker)</li>
-          <li>Streetwear labels (e.g Supreme, Stüssy or Carhartt)</li>
-          <li>Surf, skate and outdoor brands (e.g Rusty, Quiksilver and Patagonia)</li>
-          <li>Sportswear from popular teams (e.g The Warriors, All Blacks or Blackcaps) </li>
-          <li>Quality denim (e.g Levi's, Wrangler, Lee)</li>
+          <li>Designer labels</li>
+          <li>Streetwear labels</li>
+          <li>Surf, skate and outdoor brands</li>
+          <li>Sportswear from popular teams</li>
+          <li>Quality denim</li>
         </ul>
         <div class="pp-desc" style="margin-top:0.75rem;">Paid individually — assessed piece by piece, even a single standout item</div>
       </div>
@@ -407,6 +415,28 @@ footer { background: var(--cream); padding: 2.5rem; border-top: 1px solid var(--
       </div>
     </div>
     <div class="pricing-note"><strong>Adult clothing only.</strong> We buy gently used quality adult men's and women's clothing — for the moment, we don't accept bags, homewares, or children's clothing. We'll occasionally look at shoes alongside a good collection. Kids' clothing can be donated. <a href="#book" style="color:var(--burg);font-weight:700;">Got something valuable? Let us know when you book →</a></div>
+
+    <div class="brands">
+      <div class="brands-title">Popular brands we look for</div>
+      <div class="brands-grid">
+        <div>All Blacks</div>
+        <div>Blackcaps</div>
+        <div>Carhartt</div>
+        <div>Lee</div>
+        <div>Levi's</div>
+        <div>Patagonia</div>
+        <div>Quiksilver</div>
+        <div>Ralph Lauren</div>
+        <div>Rusty</div>
+        <div>Stüssy</div>
+        <div>Supreme</div>
+        <div>Ted Baker</div>
+        <div>The Warriors</div>
+        <div>Tommy Hilfiger</div>
+        <div>Wrangler</div>
+      </div>
+      <div class="brands-note">…and more. Don't see your brand? Ask us anyway — quality is what counts.</div>
+    </div>
   </div>
 </section>
 
@@ -444,13 +474,6 @@ footer { background: var(--cream); padding: 2.5rem; border-top: 1px solid var(--
           <div class="req-text">
             <strong>Designer or vintage pieces</strong>
             <span>Surf, skate, sportswear, streetwear, luxury — even one standout item qualifies</span>
-          </div>
-        </div>
-        <div class="req-item" style="margin-top: 0.5rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.08);">
-          <div class="req-ico">3</div>
-          <div class="req-text">
-            <strong>Gently used adult clothing only</strong>
-            <span>No bags or homewares — kids' clothing is donated, not paid for. We'll occasionally look at shoes too.</span>
           </div>
         </div>
       </div>
