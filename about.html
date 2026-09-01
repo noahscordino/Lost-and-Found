@@ -51,15 +51,15 @@ nav { position: sticky; top: 0; z-index: 100; display: flex; align-items: center
 
 /* STORY SECTION */
 .story { padding: 6rem 2.5rem; background: var(--warm-white); }
-.story-inner { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr; gap: 5rem; }
-.story-aside { position: sticky; top: 100px; height: fit-content; }
+.story-inner { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr; gap: 5rem; align-items: start; }
+.story-aside { position: static; height: fit-content; }
 .story-aside-card { background: var(--burg); border-radius: 20px; padding: 2rem 1.75rem; }
 .story-quote { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 300; font-style: italic; color: white; line-height: 1.5; margin-bottom: 1.25rem; }
 .story-names { font-size: 13px; color: rgba(255,255,255,0.6); }
 .story-names strong { color: white; }
 .story-tags { display: flex; flex-direction: column; gap: 8px; margin-top: 1.5rem; }
 .story-tag { font-size: 12px; font-weight: 700; padding: 5px 13px; border-radius: 20px; background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.8); display: inline-block; width: fit-content; }
-.story-aside-photos { display: flex; flex-direction: column; gap: 1.25rem; margin-top: 1.5rem; }
+.story-aside-photos { display: flex; flex-direction: column; gap: 1.25rem; margin-top: 0; }
 .story-aside-photos img { width: 100%; height: 220px; object-fit: cover; border-radius: 16px; display: block; }
 .story-body { }
 .story-img { width: 100%; height: 260px; object-fit: cover; border-radius: 16px; margin: 1.5rem 0; display: block; }
@@ -178,8 +178,8 @@ footer { background: var(--cream); padding: 2.5rem; border-top: 1px solid var(--
     </div>
     <div class="story-aside">
       <div class="story-aside-photos">
-        <img src="images/embedded-1.jpg" alt="Curated menswear hanging in the Lost & Found store" />
         <img src="images/about-photo-2.jpg" alt="Racks of curated secondhand clothing" />
+        <img src="images/embedded-1.jpg" alt="Curated menswear hanging in the Lost & Found store" />
       </div>
     </div>
   </div>
